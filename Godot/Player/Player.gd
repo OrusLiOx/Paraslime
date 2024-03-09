@@ -1,31 +1,41 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var SPEED = 300.0
+var JUMP_VELOCITY = -400.0
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@export var parasite: String
+@export var parasite: String = "None"
 
 var spriteBase : AnimatedSprite2D
-var spriteOutline : AnimatedSprite2D
+var spriteShine : AnimatedSprite2D
+var wormOut : AnimatedSprite2D
+var wormIn: AnimatedSprite2D
 
 var coyoteTime
 var extraJump
+var jumping
 
 var facing
 var dash
 var dashDuration
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var inWater
+
+signal die()
 
 func _ready():
 	spriteBase = $Sprite
-	spriteOutline = $Outline
+	spriteShine = $Shine
+	wormOut = $Worm
+	wormIn = $InnerWorm
 	coyoteTime = 100
 	dashDuration = .25
 	dash = 50
 	facing = 1
+	inWater = 0
+	set_parasite(parasite)
 
+# Process movement and such
 func _physics_process(delta):
 	jump_process(delta)
 	walk_process(delta)
@@ -55,9 +65,12 @@ func jump_process(delta):
 			return
 		
 		# acutal jump execution
+		jumping = true
 		velocity.y = JUMP_VELOCITY
-		
-	elif Input.is_action_just_released("Jump") and velocity.y <0:
+	elif velocity.y>0:
+		jumping = false
+	elif Input.is_action_just_released("Jump") and jumping:
+		jumping = false
 		velocity.y = 0
 
 func walk_process(delta):
@@ -76,6 +89,20 @@ func walk_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if inWater > 0:
+		direction = Input.get_axis("Up", "Down")
+		if direction:
+			jumping = false
+			velocity.y = direction * SPEED
+		elif !jumping:
+			if velocity.x == 0:
+				velocity.y = gravity/20
+			else:
+				velocity.y = move_toward(velocity.y, 0, SPEED)
+		if !jumping:
+			velocity.y/=2
+		velocity.x/=2
 	pass
 
 func dash_process(delta):
@@ -93,7 +120,8 @@ func dash_process(delta):
 	elif is_on_floor():
 		# reset dash if on floor and 2 seconds have passed since dash was executed
 		dash = 50
-		
+
+# Animation stuff
 func animate():
 	if dash < dashDuration:
 		set_anim("Dash")
@@ -116,15 +144,49 @@ func animate():
 			animation += "Jump"
 		else:
 			animation += "Fall"
+		
+		if inWater>0 and animation == "MoveFloat":
+			animation = "Dash"
 		set_anim(animation)
 
 func set_anim(animation):
 	spriteBase.play(animation)
-	spriteOutline.play(animation)
+	spriteShine.play(animation)
 
+# external interaction
 func set_parasite(new):
+	var color = Color(1,1,1)
+	match (parasite):
+		"Dump":
+			color = Color(1,0,0)
+		"Dash":
+			color = Color("fffa00")
+		"Dive":
+			color = Color("0067ff")
+		_:
+			new = "None"
+			
 	parasite = new
+	
+	wormIn.play(parasite)
+	wormOut.play(parasite)
+	
+	wormOut.modulate = color
+	color.a = 62.0/255.0
+	wormIn.modulate = color
 
 	extraJump = parasite == "Dump"
 	if parasite == "Dash":
 		dash = 50
+	
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Water"):
+		if parasite !="Dive":
+			emit_signal("die")
+		inWater+= 1
+	elif area.is_in_group("Parasite"):
+		set_parasite(area.type)
+
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("Water"):
+		inWater-=1
