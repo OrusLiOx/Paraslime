@@ -5,11 +5,13 @@
 [ext_resource type="SpriteFrames" uid="uid://b7vroe45tthov" path="res://Player/PlayerShineAnimations.tres" id="3_pax8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8i7xc"]
+size = Vector2(8, 8)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lgkl2")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_8i7xc")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -17,7 +19,7 @@ self_modulate = Color(0.203922, 0.854902, 0.184314, 1)
 sprite_frames = ExtResource("2_o1fqh")
 animation = &"Idle"
 
-[node name="Shine" type="AnimatedSprite2D" parent="."]
+[node name="Outline" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.823529)
 sprite_frames = ExtResource("3_pax8i")
 animation = &"Idle"
