@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d24tdij4pbxj3"]
+
+[ext_resource type="Script" path="res://ParasiteSpawner.gd" id="1_pcids"]
+[ext_resource type="SpriteFrames" uid="uid://s4klv0bja0kw" path="res://ParasiteSpawner/ParasiteSpawnerAnimations.tres" id="2_1sess"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8iva8"]
+size = Vector2(15, 15)
+
+[node name="ParasiteSpawner" type="Area2D" groups=["ParasiteSpawner"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_pcids")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_8iva8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_1sess")
+animation = &"DumpArrive"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

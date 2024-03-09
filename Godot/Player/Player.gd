@@ -154,9 +154,9 @@ func set_anim(animation):
 	spriteShine.play(animation)
 
 # external interaction
-func set_parasite(new):
+func set_parasite(new):	
 	var color = Color(1,1,1)
-	match (parasite):
+	match (new):
 		"Dump":
 			color = Color(1,0,0)
 		"Dash":
@@ -165,7 +165,7 @@ func set_parasite(new):
 			color = Color("0067ff")
 		_:
 			new = "None"
-			
+		
 	parasite = new
 	
 	wormIn.play(parasite)
@@ -184,9 +184,38 @@ func _on_area_2d_area_entered(area):
 		if parasite !="Dive":
 			emit_signal("die")
 		inWater+= 1
-	elif area.is_in_group("Parasite"):
-		set_parasite(area.type)
+	elif area.is_in_group("ParasiteSpawner"):
+		if area.enabled:
+			area.die()
+			set_parasite(area.type)
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Water"):
 		inWater-=1
+
+func _on_fear_area_entered(area):
+	if area.is_in_group("ParasiteSpawner"):
+		if parasite_fight(parasite, area.type) != area.type:
+			area.run()
+	pass # Replace with function body.
+	
+func _on_fear_area_exited(area):
+	if area.is_in_group("ParasiteSpawner"):
+		if parasite_fight(parasite, area.type) != area.type:
+			area.respawn()
+	pass # Replace with function body.
+
+func parasite_fight(current, new):
+	match(current):
+		"Dive":
+			if new == "Dash":
+				return "Dash"
+		"Dash":
+			if new == "Dump":
+				return "Dump"
+		"Dump":
+			if new == "Dive":
+				return "Dive"
+	return current
+
+
