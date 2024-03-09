@@ -3,5 +3,6 @@
 [ext_resource type="TileSet" uid="uid://dxtrlbgahisax" path="res://Resources/LevelTiles.tres" id="1_co7gq"]
 
 [node name="TileMap" type="TileMap"]
+scale = Vector2(3, 3)
 tile_set = ExtResource("1_co7gq")
 format = 2
