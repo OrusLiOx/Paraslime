@@ -1,23 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://d24tdij4pbxj3"]
+[gd_scene load_steps=7 format=3 uid="uid://d24tdij4pbxj3"]
 
 [ext_resource type="Script" path="res://ParasiteSpawner.gd" id="1_pcids"]
 [ext_resource type="SpriteFrames" uid="uid://s4klv0bja0kw" path="res://ParasiteSpawner/ParasiteSpawnerAnimations.tres" id="2_1sess"]
+[ext_resource type="Texture2D" uid="uid://2bewraealhbr" path="res://ParasiteSpawner/CleanseSheet.png" id="2_8hptt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8iva8"]
 size = Vector2(15, 15)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq0k0"]
+atlas = ExtResource("2_8hptt")
+region = Rect2(0, 14, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpbgo"]
+atlas = ExtResource("2_8hptt")
+region = Rect2(0, 0, 14, 14)
+
 [node name="ParasiteSpawner" type="Area2D" groups=["ParasiteSpawner"]]
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_pcids")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_8iva8")
 
+[node name="Fountain" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_uq0k0")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+clip_children = 2
+light_mask = 2
+visibility_layer = 2
 sprite_frames = ExtResource("2_1sess")
-animation = &"DumpArrive"
+animation = &"None"
+
+[node name="Shine" type="Sprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(0, 2)
+texture = SubResource("AtlasTexture_vpbgo")
 
 [node name="Timer" type="Timer" parent="."]
 

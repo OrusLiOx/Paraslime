@@ -20,6 +20,7 @@ var dash
 var dashDuration
 
 var inWater
+var onSurface
 
 signal die()
 
@@ -33,6 +34,7 @@ func _ready():
 	dash = 50
 	facing = 1
 	inWater = 0
+	onSurface = 0
 	set_parasite(parasite)
 
 # Process movement and such
@@ -46,27 +48,37 @@ func _physics_process(delta):
 	move_and_slide()
 
 func jump_process(delta):
+	if velocity.y >0:
+		jumping = false
 	if !is_on_floor():
 		# falling
 		coyoteTime += delta
-		velocity.y += gravity * delta
+		if in_water():
+			velocity.y += gravity/4 * delta
+		else:
+			velocity.y += gravity * delta
 	else:
 		# on ground
 		coyoteTime = 0
 		extraJump = true
 		
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_pressed("Jump"):
 		# set stuff based on type of jump performed
 		if coyoteTime < .25:
 			coyoteTime = 1
-		elif extraJump and parasite == "Dump":
+		elif on_surface():
+			pass
+		elif Input.is_action_just_pressed("Jump") and extraJump and parasite == "Dump":
 			extraJump = false
 		else:
 			return
-		
 		# acutal jump execution
+		if in_water() and !on_surface():
+			velocity.y = JUMP_VELOCITY/2
+		else:
+			velocity.y = JUMP_VELOCITY
 		jumping = true
-		velocity.y = JUMP_VELOCITY
+		
 	elif velocity.y>0:
 		jumping = false
 	elif Input.is_action_just_released("Jump") and jumping:
@@ -89,20 +101,34 @@ func walk_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if inWater > 0:
-		direction = Input.get_axis("Up", "Down")
-		if direction:
-			jumping = false
-			velocity.y = direction * SPEED
-		elif !jumping:
-			if velocity.x == 0:
-				velocity.y = gravity/20
-			else:
-				velocity.y = move_toward(velocity.y, 0, SPEED)
-		if !jumping:
-			velocity.y/=2
-		velocity.x/=2
+	#swimming
+	if in_water():
+		if parasite == "Dive":
+			direction = Input.get_axis("Up", "Down")
+			if direction:
+				# holding up or down
+				jumping = false
+				velocity.y = direction * SPEED
+			elif !jumping:
+				if velocity.x == 0:
+					# sink
+					if !on_surface():
+						velocity.y = gravity/40
+					else:
+						velocity.y =0
+				else:
+					# moving vertical
+					velocity.y = 0
+			if !jumping:
+				if velocity.y!= gravity/40:
+					velocity = velocity.normalized()*SPEED
+				velocity.y *= 2/3.0
+		else:
+			if !on_surface():
+				velocity.y = gravity/-20
+			elif !jumping:
+				velocity.y =0
+		velocity.x *= 2/3.0
 	pass
 
 func dash_process(delta):
@@ -117,7 +143,7 @@ func dash_process(delta):
 	if dash < dashDuration+.1:
 		# increment dash timer
 		dash+=delta
-	elif is_on_floor():
+	elif is_on_floor() or in_water():
 		# reset dash if on floor and 2 seconds have passed since dash was executed
 		dash = 50
 
@@ -138,14 +164,14 @@ func animate():
 		else:
 			animation = "Move"
 		
-		if abs(velocity.y) < 10:
+		if abs(velocity.y) <= gravity/40:
 			animation += "Float"
 		elif velocity.y <0:
 			animation += "Jump"
 		else:
 			animation += "Fall"
 		
-		if inWater>0 and animation == "MoveFloat":
+		if in_water() and animation == "MoveFloat":
 			animation = "Dash"
 		set_anim(animation)
 
@@ -153,8 +179,8 @@ func set_anim(animation):
 	spriteBase.play(animation)
 	spriteShine.play(animation)
 
-# external interaction
-func set_parasite(new):	
+# parasite things
+func set_parasite(new):
 	var color = Color(1,1,1)
 	match (new):
 		"Dump":
@@ -165,7 +191,7 @@ func set_parasite(new):
 			color = Color("0067ff")
 		_:
 			new = "None"
-		
+	
 	parasite = new
 	
 	wormIn.play(parasite)
@@ -178,32 +204,15 @@ func set_parasite(new):
 	extraJump = parasite == "Dump"
 	if parasite == "Dash":
 		dash = 50
-	
-func _on_area_2d_area_entered(area):
-	if area.is_in_group("Water"):
-		if parasite !="Dive":
-			emit_signal("die")
-		inWater+= 1
-	elif area.is_in_group("ParasiteSpawner"):
-		if area.enabled:
-			area.die()
-			set_parasite(area.type)
-
-func _on_area_2d_area_exited(area):
-	if area.is_in_group("Water"):
-		inWater-=1
-
-func _on_fear_area_entered(area):
-	if area.is_in_group("ParasiteSpawner"):
-		if parasite_fight(parasite, area.type) != area.type:
-			area.run()
-	pass # Replace with function body.
-	
-func _on_fear_area_exited(area):
-	if area.is_in_group("ParasiteSpawner"):
-		if parasite_fight(parasite, area.type) != area.type:
-			area.respawn()
-	pass # Replace with function body.
+		
+func eat_parasite(para):
+	if para.enabled and (para.type == "None"  or parasite_fight(parasite, para.type) == para.type):
+		set_parasite(para.type)
+		para.die()
+		for area in $Fear.get_overlapping_areas():
+			if area.is_in_group("ParasiteSpawner"):
+				if parasite_fight(para.type, area.type) == area.type:
+					area.unfear()
 
 func parasite_fight(current, new):
 	match(current):
@@ -216,6 +225,48 @@ func parasite_fight(current, new):
 		"Dump":
 			if new == "Dive":
 				return "Dive"
+		_:
+			return new
 	return current
 
+func _on_fear_area_entered(area):
+	if area.is_in_group("ParasiteSpawner"):
+		if parasite_fight(parasite, area.type) != area.type:
+			area.run()
+	pass # Replace with function body.
+	
+func _on_fear_area_exited(area):
+	if area.is_in_group("ParasiteSpawner"):
+		area.unfear()
+	pass # Replace with function body.
 
+# helper
+func in_water():
+	return inWater > 0
+
+func on_surface():
+	return in_water() and onSurface >0
+
+# collisions
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("ParasiteSpawner"):
+		eat_parasite(area)
+
+func _on_area_2d_body_entered(body):
+	inWater+= 1
+	pass # Replace with function body.
+
+func _on_area_2d_body_exited(body):
+	inWater-= 1
+	pass # Replace with function body.
+
+func _on_water_surface_body_entered(body):
+	onSurface+=1
+	pass # Replace with function body.
+
+func _on_water_surface_body_exited(body):
+	onSurface-=1
+	pass # Replace with function body.
+
+func _on_hazard_body_entered(body):
+	emit_signal("die")
