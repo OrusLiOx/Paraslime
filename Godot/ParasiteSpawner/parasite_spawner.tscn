@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://2bewraealhbr" path="res://ParasiteSpawner/CleanseSheet.png" id="2_8hptt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8iva8"]
-size = Vector2(15, 15)
+size = Vector2(8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uq0k0"]
 atlas = ExtResource("2_8hptt")
@@ -30,7 +30,8 @@ clip_children = 2
 light_mask = 2
 visibility_layer = 2
 sprite_frames = ExtResource("2_1sess")
-animation = &"None"
+animation = &"Dump"
+frame = 4
 
 [node name="Shine" type="Sprite2D" parent="AnimatedSprite2D"]
 visible = false

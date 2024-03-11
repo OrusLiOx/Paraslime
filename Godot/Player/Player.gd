@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var SPEED = 300.0
-var JUMP_VELOCITY = -400.0
+var SPEED = 200.0
+var JUMP_VELOCITY = -350.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var parasite: String = "None"
@@ -41,6 +41,7 @@ func _ready():
 func _physics_process(delta):
 	jump_process(delta)
 	walk_process(delta)
+	swim_process(delta)
 	dash_process(delta)
 	
 	animate()
@@ -101,35 +102,44 @@ func walk_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	#swimming
-	if in_water():
-		if parasite == "Dive":
-			direction = Input.get_axis("Up", "Down")
-			if direction:
-				# holding up or down
-				jumping = false
-				velocity.y = direction * SPEED
-			elif !jumping:
-				if velocity.x == 0:
-					# sink
-					if !on_surface():
-						velocity.y = gravity/40
-					else:
-						velocity.y =0
-				else:
-					# moving vertical
-					velocity.y = 0
-			if !jumping:
-				if velocity.y!= gravity/40:
-					velocity = velocity.normalized()*SPEED
-				velocity.y *= 2/3.0
-		else:
-			if !on_surface():
-				velocity.y = gravity/-20
-			elif !jumping:
-				velocity.y =0
-		velocity.x *= 2/3.0
+
 	pass
+
+func swim_process(delta):
+	if !in_water():
+		return
+		
+	if parasite == "Dive":
+		var direction = Input.get_axis("Up", "Down")
+		if direction:
+			# holding up or down
+			if !jumping:
+				velocity.y = direction * SPEED
+			if !on_surface():
+				jumping = false
+			elif direction <0 and !jumping:
+				velocity.y =0
+		elif !jumping:
+			if velocity.x == 0:
+				# sink
+				if !on_surface():
+					velocity.y = gravity/40
+				else:
+					velocity.y =0
+				velocity.y = gravity/40
+			else:
+				# moving vertical
+				velocity.y = 0
+		if !jumping:
+			if velocity.y!= gravity/40:
+				velocity = velocity.normalized()*SPEED
+			velocity.y *= 2/3.0
+	else:
+		if !on_surface():
+			velocity.y = gravity/-20
+		elif !jumping:
+			velocity.y =0
+	velocity.x *= 2/3.0
 
 func dash_process(delta):
 	if Input.is_action_just_pressed("Dash") and parasite == "Dash" and dash > 10:
@@ -164,9 +174,9 @@ func animate():
 		else:
 			animation = "Move"
 		
-		if abs(velocity.y) <= gravity/40:
+		if abs(velocity.y) <= gravity/40 and !(in_water() and Input.is_action_pressed("Up")):
 			animation += "Float"
-		elif velocity.y <0:
+		elif velocity.y <=0 :
 			animation += "Jump"
 		else:
 			animation += "Fall"
