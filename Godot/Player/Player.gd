@@ -109,8 +109,8 @@ func swim_process(delta):
 	if !in_water():
 		return
 	extraJump=true
+	var direction = Input.get_axis("Up", "Down")
 	if parasite == "Dive":
-		var direction = Input.get_axis("Up", "Down")
 		if direction:
 			# holding up or down
 			if !jumping:
@@ -136,7 +136,7 @@ func swim_process(delta):
 			velocity.y *= 2/3.0
 	else:
 		if !on_surface():
-			velocity.y = gravity/-20
+			velocity.y = gravity/-20 + direction * 40
 		elif !jumping:
 			velocity.y =0
 	velocity.x *= 2/3.0
