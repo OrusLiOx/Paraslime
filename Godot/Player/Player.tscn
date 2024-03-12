@@ -12,6 +12,7 @@ size = Vector2(10, 10)
 radius = 60.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 2
 scale = Vector2(3, 3)
 script = ExtResource("1_lgkl2")
 

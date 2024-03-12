@@ -10,9 +10,11 @@ var levels = ["title.tscn", "blue_tutorial.tscn", "red_tutorial.tscn", "blue_tut
 @onready var shade_text = $Shade/Text
 
 func _ready():
-	Load_Level(1, "Loading...")
+	Load_Level(4, "Loading...")
 
 func Next_Level(message = "SLIME!"):
+	if current_level == len(levels):
+		Load_Level(0, message)
 	Load_Level(1 + current_level, message)
 
 func Load_Level(toLoad : int, message = "SLIME!"):

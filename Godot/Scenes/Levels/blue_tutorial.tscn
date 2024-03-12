@@ -49,13 +49,15 @@ scale = Vector2(0.333, 1)
 theme = ExtResource("2_bbuod")
 text = "Red Fears Blue"
 
-[node name="Player" parent="." instance=ExtResource("2_8ws2b")]
-position = Vector2(110, 153)
+[node name="Spawners" type="Node" parent="."]
 
-[node name="ParasiteSpawner" parent="." instance=ExtResource("3_swufs")]
+[node name="ParasiteSpawner" parent="Spawners" instance=ExtResource("3_swufs")]
 position = Vector2(518, 153)
 type = "Dive"
 
-[node name="ParasiteSpawner2" parent="." instance=ExtResource("3_swufs")]
+[node name="ParasiteSpawner2" parent="Spawners" instance=ExtResource("3_swufs")]
 position = Vector2(851, 566)
 type = "Dump"
+
+[node name="Player" parent="." instance=ExtResource("2_8ws2b")]
+position = Vector2(110, 153)

@@ -83,17 +83,19 @@ offset_bottom = 75.0
 theme = ExtResource("2_q64l8")
 text = "SHH!"
 
-[node name="Player" parent="." instance=ExtResource("2_63kw7")]
-position = Vector2(44, 573)
+[node name="Spawners" type="Node" parent="."]
 
-[node name="ParasiteSpawner" parent="." instance=ExtResource("3_13t53")]
+[node name="ParasiteSpawner" parent="Spawners" instance=ExtResource("3_13t53")]
 position = Vector2(182, 566)
 type = "Dump"
 
-[node name="ParasiteSpawner2" parent="." instance=ExtResource("3_13t53")]
+[node name="ParasiteSpawner2" parent="Spawners" instance=ExtResource("3_13t53")]
 position = Vector2(1069, 362)
 type = "Dump"
 
-[node name="ParasiteSpawner3" parent="." instance=ExtResource("3_13t53")]
+[node name="ParasiteSpawner3" parent="Spawners" instance=ExtResource("3_13t53")]
 position = Vector2(613, 147)
 type = "Dash"
+
+[node name="Player" parent="." instance=ExtResource("2_63kw7")]
+position = Vector2(44, 573)

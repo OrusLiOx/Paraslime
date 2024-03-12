@@ -29,7 +29,7 @@ text = "PARASLIME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Start" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,3 +43,33 @@ offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "SLIME"
+
+[node name="LevelSelect" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 84.0
+offset_right = 123.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Select"
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 172.0
+offset_right = 123.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
