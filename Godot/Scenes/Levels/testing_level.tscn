@@ -11,25 +11,20 @@ layer_0/tile_data = PackedInt32Array(786432, 2, 1, 786433, 65538, 1, 786434, 655
 
 [node name="Player" parent="." instance=ExtResource("2_clroa")]
 position = Vector2(844, 450)
-scale = Vector2(3, 3)
 parasite = "Dive"
 
 [node name="ParasiteSpawner" parent="." instance=ExtResource("3_ih2jw")]
 position = Vector2(61, 469)
-scale = Vector2(3, 3)
 type = "Dash"
 
 [node name="ParasiteSpawner4" parent="." instance=ExtResource("3_ih2jw")]
 position = Vector2(383, 483)
-scale = Vector2(3, 3)
 type = "None"
 
 [node name="ParasiteSpawner2" parent="." instance=ExtResource("3_ih2jw")]
 position = Vector2(629, 469)
-scale = Vector2(3, 3)
 type = "Dump"
 
 [node name="ParasiteSpawner3" parent="." instance=ExtResource("3_ih2jw")]
 position = Vector2(348, 294)
-scale = Vector2(3, 3)
 type = "Dive"
