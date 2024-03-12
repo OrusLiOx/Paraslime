@@ -21,8 +21,7 @@ shape = SubResource("RectangleShape2D_8i7xc")
 modulate = Color(1, 0.0627451, 0, 1)
 position = Vector2(1, -5)
 sprite_frames = ExtResource("2_g2sc8")
-animation = &"None"
-frame_progress = 0.513767
+animation = &"Dive"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.203922, 0.854902, 0.184314, 1)
@@ -68,6 +67,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fear"]
+scale = Vector2(0.75, 0.75)
 shape = SubResource("CircleShape2D_xcw3x")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

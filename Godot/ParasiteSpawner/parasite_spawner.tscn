@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d24tdij4pbxj3"]
 
-[ext_resource type="Script" path="res://ParasiteSpawner.gd" id="1_pcids"]
+[ext_resource type="Script" path="res://Scripts/ParasiteSpawner.gd" id="1_5qtk8"]
 [ext_resource type="SpriteFrames" uid="uid://s4klv0bja0kw" path="res://ParasiteSpawner/ParasiteSpawnerAnimations.tres" id="2_1sess"]
 [ext_resource type="Texture2D" uid="uid://2bewraealhbr" path="res://ParasiteSpawner/CleanseSheet.png" id="2_8hptt"]
 
@@ -16,7 +16,9 @@ atlas = ExtResource("2_8hptt")
 region = Rect2(0, 0, 14, 14)
 
 [node name="ParasiteSpawner" type="Area2D" groups=["ParasiteSpawner"]]
-script = ExtResource("1_pcids")
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5qtk8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8iva8")
