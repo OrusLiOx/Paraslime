@@ -22,7 +22,6 @@ collision_mask = 2
 script = ExtResource("1_vgvjo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_8iva8")
 
 [node name="Fountain" type="Sprite2D" parent="."]
@@ -33,7 +32,6 @@ texture = SubResource("AtlasTexture_uq0k0")
 clip_children = 2
 light_mask = 2
 visibility_layer = 2
-scale = Vector2(3, 3)
 sprite_frames = ExtResource("2_1sess")
 animation = &"Dump"
 frame = 4
