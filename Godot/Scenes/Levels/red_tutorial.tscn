@@ -87,14 +87,17 @@ text = "SHH!"
 
 [node name="ParasiteSpawner" parent="Spawners" instance=ExtResource("3_13t53")]
 position = Vector2(182, 566)
+scale = Vector2(1, 1)
 type = "Dump"
 
 [node name="ParasiteSpawner2" parent="Spawners" instance=ExtResource("3_13t53")]
 position = Vector2(1069, 362)
+scale = Vector2(1, 1)
 type = "Dump"
 
 [node name="ParasiteSpawner3" parent="Spawners" instance=ExtResource("3_13t53")]
 position = Vector2(613, 147)
+scale = Vector2(1, 1)
 type = "Dash"
 
 [node name="Player" parent="." instance=ExtResource("2_63kw7")]

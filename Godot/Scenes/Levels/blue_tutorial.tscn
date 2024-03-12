@@ -53,10 +53,12 @@ text = "Red Fears Blue"
 
 [node name="ParasiteSpawner" parent="Spawners" instance=ExtResource("3_swufs")]
 position = Vector2(518, 153)
+scale = Vector2(1, 1)
 type = "Dive"
 
 [node name="ParasiteSpawner2" parent="Spawners" instance=ExtResource("3_swufs")]
 position = Vector2(851, 566)
+scale = Vector2(1, 1)
 type = "Dump"
 
 [node name="Player" parent="." instance=ExtResource("2_8ws2b")]
