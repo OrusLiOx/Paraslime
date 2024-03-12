@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj4ffn1a43al3"]
+[gd_scene load_steps=3 format=3 uid="uid://dj4ffn1a43al3"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rukxn"]
 [ext_resource type="FontFile" uid="uid://brjv1e0gpajs0" path="res://Resources/SlimeAnDBlood.ttf" id="2_h721g"]
-[ext_resource type="PackedScene" uid="uid://bj0hps0u0ltrv" path="res://Scenes/Levels/testing_level.tscn" id="2_npxj1"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_rukxn")
 
-[node name="Level" type="Node" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.490196, 0.917647, 1, 1)
 
-[node name="Testing_Level" parent="Level" instance=ExtResource("2_npxj1")]
+[node name="Level" type="Node" parent="."]
 
 [node name="Shade" type="ColorRect" parent="."]
 visible = false
