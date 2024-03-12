@@ -14,7 +14,7 @@ position = Vector2(844, 450)
 parasite = "Dive"
 
 [node name="ParasiteSpawner" parent="." instance=ExtResource("3_ih2jw")]
-position = Vector2(61, 469)
+position = Vector2(906, 611)
 type = "Dash"
 
 [node name="ParasiteSpawner4" parent="." instance=ExtResource("3_ih2jw")]
