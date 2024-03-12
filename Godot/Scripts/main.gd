@@ -3,14 +3,14 @@ extends Node
 var current_level = 0
 var level_path = r"res://Scenes/Levels/"
 
-var levels = ["title.tscn", "blue_tutorial.tscn", "red_tutorial.tscn", "blue_tutorial.tscn", "swap_tutorial.tscn"]
+var levels = ["title.tscn", "blue_tutorial.tscn", "red_tutorial.tscn", "yellow_tutorial.tscn", "swap_tutorial.tscn"]
 
 @onready var level_container = $Level
 @onready var shade = $Shade
 @onready var shade_text = $Shade/Text
 
 func _ready():
-	Load_Level(4, "Loading...")
+	Load_Level(0, "Loading...")
 
 func Next_Level(message = "SLIME!"):
 	if current_level == len(levels):
