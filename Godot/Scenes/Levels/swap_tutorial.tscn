@@ -17,23 +17,23 @@ layer_2/tile_data = PackedInt32Array(655375, 65538, 8, 655376, 65538, 8, 720912,
 [node name="Spawners" type="Node" parent="."]
 
 [node name="Red" parent="Spawners" instance=ExtResource("2_c5wu8")]
-position = Vector2(657, 273)
-scale = Vector2(2, 2)
+position = Vector2(663, 266)
+scale = Vector2(1, 1)
 type = "Dump"
 
 [node name="Blue" parent="Spawners" instance=ExtResource("2_c5wu8")]
-position = Vector2(524, 491)
-scale = Vector2(2, 2)
+position = Vector2(526, 481)
+scale = Vector2(1, 1)
 type = "Dive"
 
 [node name="Yellow" parent="Spawners" instance=ExtResource("2_c5wu8")]
-position = Vector2(1109, 444)
-scale = Vector2(2, 2)
+position = Vector2(1108, 434)
+scale = Vector2(1, 1)
 type = "Dash"
 
 [node name="Red2" parent="Spawners" instance=ExtResource("2_c5wu8")]
 position = Vector2(386, 99)
-scale = Vector2(2, 2)
+scale = Vector2(1, 1)
 type = "Dump"
 
 [node name="Player" parent="." instance=ExtResource("3_v7bey")]

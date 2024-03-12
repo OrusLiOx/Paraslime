@@ -36,6 +36,10 @@ func _ready():
 	inWater = 0
 	onSurface = 0
 	set_parasite(parasite)
+	
+	if get_tree().root.get_child(0).name == "Main":
+		connect("die", get_tree().root.get_child(0).Death)
+		
 
 # Process movement and such
 func _physics_process(delta):

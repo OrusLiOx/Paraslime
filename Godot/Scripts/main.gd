@@ -22,7 +22,7 @@ func Load_Level(toLoad : int, message = "SLIME!"):
 	shade_text.text = message
 	shade.show()
 	for child in level_container.get_children():
-		level_container.remove_child(child)
+		child.queue_free()
 	await get_tree().create_timer(.5).timeout
 	var level = load(level_path + levels[toLoad]).instantiate()
 	level_container.add_child(level)
