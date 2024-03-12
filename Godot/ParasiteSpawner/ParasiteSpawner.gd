@@ -63,7 +63,7 @@ func _process(delta):
 	pass
 
 func die():
-	timer.start(5)
+	timer.start(3)
 	enabled = false
 	if type == "None":
 		anim.play("NoneLeave")
