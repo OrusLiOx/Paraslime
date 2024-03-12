@@ -108,7 +108,7 @@ func walk_process(delta):
 func swim_process(delta):
 	if !in_water():
 		return
-		
+	extraJump=true
 	if parasite == "Dive":
 		var direction = Input.get_axis("Up", "Down")
 		if direction:
@@ -145,15 +145,18 @@ func dash_process(delta):
 	if Input.is_action_just_pressed("Dash") and parasite == "Dash" and dash > 10:
 		dash = 0
 	
-	# dash for 1 seconds
-	if dash < dashDuration:
+	# dash
+	var dashTemp = dash
+	if dash >=100:
+		dashTemp-=100
+	if dashTemp < dashDuration:
 		velocity.y = 0
 		velocity.x = facing*SPEED*3
 		
-	if dash < dashDuration+.1:
+	if dashTemp < dashDuration+.1:
 		# increment dash timer
 		dash+=delta
-	elif is_on_floor() or in_water():
+	elif is_on_floor() or in_water() or dash >=100:
 		# reset dash if on floor and 2 seconds have passed since dash was executed
 		dash = 50
 
@@ -213,16 +216,19 @@ func set_parasite(new):
 
 	extraJump = parasite == "Dump"
 	if parasite == "Dash":
-		dash = 50
+		dash += 100
+	
+	for area in $Fear.get_overlapping_areas():
+		if area.is_in_group("ParasiteSpawner"):
+			if parasite_fight(parasite, area.type) == area.type:
+				area.unfear()
+			else:
+				area.run()
 		
 func eat_parasite(para):
 	if para.enabled and (para.type == "None"  or parasite_fight(parasite, para.type) == para.type):
 		set_parasite(para.type)
 		para.die()
-		for area in $Fear.get_overlapping_areas():
-			if area.is_in_group("ParasiteSpawner"):
-				if parasite_fight(para.type, area.type) == area.type:
-					area.unfear()
 
 func parasite_fight(current, new):
 	match(current):
