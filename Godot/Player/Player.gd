@@ -90,7 +90,7 @@ func jump_process(delta):
 		jumping = false
 		velocity.y = 0
 
-func walk_process(delta):
+func walk_process(_delta):
 	var direction = Input.get_axis("Left", "Right")
 	
 	# deal with turning
@@ -109,7 +109,7 @@ func walk_process(delta):
 
 	pass
 
-func swim_process(delta):
+func swim_process(_delta):
 	if !in_water():
 		return
 	extraJump=true
@@ -272,21 +272,21 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("ParasiteSpawner"):
 		eat_parasite(area)
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	inWater+= 1
 	pass # Replace with function body.
 
-func _on_area_2d_body_exited(body):
+func _on_area_2d_body_exited(_body):
 	inWater-= 1
 	pass # Replace with function body.
 
-func _on_water_surface_body_entered(body):
+func _on_water_surface_body_entered(_body):
 	onSurface+=1
 	pass # Replace with function body.
 
-func _on_water_surface_body_exited(body):
+func _on_water_surface_body_exited(_body):
 	onSurface-=1
 	pass # Replace with function body.
 
-func _on_hazard_body_entered(body):
+func _on_hazard_body_entered(_body):
 	emit_signal("die")
