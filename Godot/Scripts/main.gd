@@ -8,7 +8,8 @@ var level_path = r"res://Scenes/Levels/"
 
 
 func _ready():
-	Load_Level("title", "Loading...")
+	pass
+	#Load_Level("title", "Loading...")
 
 
 func Load_Level(toLoad : String, message = "SLIME!"):

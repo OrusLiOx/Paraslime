@@ -17,27 +17,19 @@ parasite = "Dive"
 [node name="ParasiteSpawner" parent="." instance=ExtResource("3_ih2jw")]
 position = Vector2(61, 469)
 scale = Vector2(3, 3)
-collision_layer = 2
-collision_mask = 2
 type = "Dash"
 
 [node name="ParasiteSpawner4" parent="." instance=ExtResource("3_ih2jw")]
 position = Vector2(383, 483)
 scale = Vector2(3, 3)
-collision_layer = 2
-collision_mask = 2
 type = "None"
 
 [node name="ParasiteSpawner2" parent="." instance=ExtResource("3_ih2jw")]
 position = Vector2(629, 469)
 scale = Vector2(3, 3)
-collision_layer = 2
-collision_mask = 2
 type = "Dump"
 
 [node name="ParasiteSpawner3" parent="." instance=ExtResource("3_ih2jw")]
 position = Vector2(348, 294)
 scale = Vector2(3, 3)
-collision_layer = 2
-collision_mask = 2
 type = "Dive"

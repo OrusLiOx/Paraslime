@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var SPEED = 200.0
-var JUMP_VELOCITY = -350.0
+var JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var parasite: String = "None"

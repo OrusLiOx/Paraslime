@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://brjv1e0gpajs0"
-path="res://.godot/imported/SlimeAnDBlood.ttf-793194db20b42e33491ccd36f6bbd682.fontdata"
+path="res://.godot/imported/SlimeAnDBlood.ttf-9d5865593d980657b664880e1d5b2500.fontdata"
 
 [deps]
 
-source_file="res://Art/SlimeAnDBlood.ttf"
-dest_files=["res://.godot/imported/SlimeAnDBlood.ttf-793194db20b42e33491ccd36f6bbd682.fontdata"]
+source_file="res://Resources/SlimeAnDBlood.ttf"
+dest_files=["res://.godot/imported/SlimeAnDBlood.ttf-9d5865593d980657b664880e1d5b2500.fontdata"]
 
 [params]
 
