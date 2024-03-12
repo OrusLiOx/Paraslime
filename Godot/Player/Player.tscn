@@ -12,6 +12,7 @@ size = Vector2(10, 10)
 radius = 60.0
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_lgkl2")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
