@@ -148,7 +148,7 @@ func dash_process(delta):
 	# dash for 1 seconds
 	if dash < dashDuration:
 		velocity.y = 0
-		velocity.x = facing*SPEED*2
+		velocity.x = facing*SPEED*3
 		
 	if dash < dashDuration+.1:
 		# increment dash timer
