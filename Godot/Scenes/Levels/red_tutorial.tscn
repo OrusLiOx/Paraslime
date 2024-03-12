@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_cqrnj"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="2_63kw7"]
-[ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="2_q64l8"]
+[ext_resource type="Theme" path="res://Resources/Level_Text.res" id="2_q64l8"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="3_13t53"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="3_18xpe"]
+[ext_resource type="PackedScene" path="res://Scenes/Trigger.tscn" id="3_18xpe"]
 
 [node name="RedTutorial" type="Node2D"]
 
