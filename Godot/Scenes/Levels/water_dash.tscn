@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://hvt8mreq73p5"]
+[gd_scene load_steps=5 format=3 uid="uid://hvt8mreq73p5"]
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_uf8dw"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="2_lcmq7"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="3_5sxo1"]
+[ext_resource type="PackedScene" uid="uid://fyxjqusmmoc0" path="res://Scenes/Win.tscn" id="4_6tepd"]
 
 [node name="Level" type="Node2D"]
 
@@ -22,3 +23,6 @@ type = "Dash"
 [node name="ParasiteSpawner2" parent="." instance=ExtResource("3_5sxo1")]
 position = Vector2(1041, 105)
 type = "Dive"
+
+[node name="Win" parent="." instance=ExtResource("4_6tepd")]
+position = Vector2(85, 378)

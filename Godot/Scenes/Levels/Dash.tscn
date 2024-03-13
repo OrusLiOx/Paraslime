@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://lcwy176d1ode"]
+[gd_scene load_steps=5 format=3 uid="uid://c1llsgpaun25f"]
 
-[ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_4oysh"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="2_swrnr"]
-[ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="3_ry2nb"]
-[ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="4_7vv7q"]
-[ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="5_ohf54"]
+[ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_41f0m"]
+[ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="2_7u7mp"]
+[ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="3_rvimn"]
+[ext_resource type="PackedScene" uid="uid://fyxjqusmmoc0" path="res://Scenes/Win.tscn" id="4_v2dse"]
+
 
 [node name="Level" type="Node2D"]
 
@@ -84,3 +84,6 @@ type = "Dump"
 [node name="Player" parent="." instance=ExtResource("5_ohf54")]
 z_index = 2
 position = Vector2(1125, 531)
+
+[node name="Win" parent="." instance=ExtResource("4_v2dse")]
+position = Vector2(81, 504)
