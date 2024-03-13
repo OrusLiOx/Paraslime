@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://lcwy176d1ode"]
+[gd_scene load_steps=4 format=3 uid="uid://c1llsgpaun25f"]
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_41f0m"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="2_7u7mp"]
