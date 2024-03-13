@@ -23,6 +23,7 @@ var inWater
 var onSurface
 
 signal die()
+signal win()
 
 func _ready():
 	spriteBase = $Sprite
@@ -40,7 +41,6 @@ func _ready():
 	if get_tree().root.get_child(0).name == "Main":
 		connect("die", get_tree().root.get_child(0).Death)
 		
-
 # Process movement and such
 func _physics_process(delta):
 	jump_process(delta)
@@ -271,6 +271,8 @@ func on_surface():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("ParasiteSpawner"):
 		eat_parasite(area)
+	elif area.is_in_group("Win"):
+		emit_signal("win")
 
 func _on_area_2d_body_entered(_body):
 	inWater+= 1

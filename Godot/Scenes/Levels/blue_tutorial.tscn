@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bruuqdjtvwn8u"]
+[gd_scene load_steps=7 format=3 uid="uid://bruuqdjtvwn8u"]
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_1cftt"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="2_8ws2b"]
-[ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="2_bbuod"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="2_peufa"]
+[ext_resource type="Theme" path="res://Resources/Level_Text.res" id="2_bbuod"]
+[ext_resource type="PackedScene" path="res://Scenes/Trigger.tscn" id="2_peufa"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="3_swufs"]
+[ext_resource type="PackedScene" uid="uid://fyxjqusmmoc0" path="res://Scenes/Win.tscn" id="6_84rcx"]
 
 [node name="BlueTutorial" type="Node2D"]
 
@@ -62,3 +63,6 @@ type = "Dump"
 
 [node name="Player" parent="." instance=ExtResource("2_8ws2b")]
 position = Vector2(110, 153)
+
+[node name="Win" parent="." instance=ExtResource("6_84rcx")]
+position = Vector2(507, 546)
