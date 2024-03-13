@@ -11,6 +11,9 @@ size = Vector2(9, 28)
 
 [node name="Win" type="Area2D" groups=["Win"]]
 scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 2
+monitoring = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_57d87")

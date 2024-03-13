@@ -38,8 +38,11 @@ func _ready():
 	onSurface = 0
 	set_parasite(parasite)
 	
-	if get_tree().root.get_child(0).name == "Main":
-		connect("die", get_tree().root.get_child(0).Death)
+	var main = get_tree().root.get_child(0)
+	if main.name == "Main":
+		connect("die", main.Death)
+		connect("win", main.Win)
+		
 		
 # Process movement and such
 func _physics_process(delta):

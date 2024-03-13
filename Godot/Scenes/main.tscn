@@ -18,7 +18,8 @@ color = Color(0.490196, 0.839216, 1, 1)
 
 [node name="Level" type="Node" parent="."]
 
-[node name="Control" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -9,6 +9,3 @@ func _ready():
 		get_tree().quit()
 	$Start.connect("pressed", main.Next_Level)	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
