@@ -92,6 +92,7 @@ var levels = [
 @onready var shade_text = $Shade/Text
 
 func _ready():
+	$Background/Clouds.emitting = true
 	Load_Level(0, "Loading...")
 
 func Next_Level(message = "SLIME!"):
