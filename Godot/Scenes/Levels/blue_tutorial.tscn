@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_1cftt"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="2_8ws2b"]
-[ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="2_bbuod"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="2_peufa"]
+[ext_resource type="Theme" path="res://Resources/Level_Text.res" id="2_bbuod"]
+[ext_resource type="PackedScene" path="res://Scenes/Trigger.tscn" id="2_peufa"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="3_swufs"]
 [ext_resource type="PackedScene" uid="uid://fyxjqusmmoc0" path="res://Scenes/Win.tscn" id="6_84rcx"]
 
@@ -17,13 +17,13 @@ layer_2/tile_data = PackedInt32Array(196623, 65538, 8, 262159, 65538, 8, 327695,
 [node name="Text" type="Node" parent="."]
 
 [node name="Trigger" parent="Text" instance=ExtResource("2_peufa")]
-position = Vector2(519, 157)
+position = Vector2(518, 174)
 
 [node name="Down" type="Label" parent="Text/Trigger"]
 offset_left = -186.0
-offset_top = 56.0
-offset_right = -52.0
-offset_bottom = 83.0
+offset_top = 41.0
+offset_right = -44.0
+offset_bottom = 68.0
 theme = ExtResource("2_bbuod")
 text = "Hold Down!"
 
