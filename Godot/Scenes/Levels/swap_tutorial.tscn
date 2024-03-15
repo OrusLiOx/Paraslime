@@ -33,12 +33,13 @@ Height?"
 position = Vector2(148, 167)
 
 [node name="Label" type="Label" parent="Text/Jump"]
-offset_left = -113.0
-offset_top = 30.0
-offset_right = -14.0
-offset_bottom = 87.0
+offset_left = -116.0
+offset_top = 33.0
+offset_right = -47.0
+offset_bottom = 90.0
 theme = ExtResource("3_0gwfs")
-text = "Big Jump!"
+text = "Big 
+Jump!"
 autowrap_mode = 2
 
 [node name="Secret" parent="Text" instance=ExtResource("2_lqx7b")]
@@ -47,7 +48,7 @@ position = Vector2(735, 413)
 [node name="Label" type="Label" parent="Text/Secret"]
 offset_left = 90.0
 offset_top = -45.0
-offset_right = 184.0
+offset_right = 190.0
 offset_bottom = 12.0
 theme = ExtResource("3_0gwfs")
 text = "Very
@@ -57,10 +58,10 @@ Clever!"
 position = Vector2(1108, 453)
 
 [node name="Label" type="Label" parent="Text/Death"]
-offset_left = -10.0
-offset_top = -81.0
-offset_right = 30.0
-offset_bottom = -54.0
+offset_left = -20.0
+offset_top = -77.0
+offset_right = 13.0
+offset_bottom = -50.0
 theme = ExtResource("3_0gwfs")
 text = "D:"
 
@@ -81,8 +82,8 @@ position = Vector2(663, 290)
 [node name="Label" type="Label" parent="Text/Greater"]
 offset_left = -38.0
 offset_top = -136.0
-offset_right = 309.0
-offset_bottom = -100.0
+offset_right = 315.0
+offset_bottom = -109.0
 theme = ExtResource("3_0gwfs")
 text = "Blue > Red > Yellow > Blue"
 
@@ -92,10 +93,11 @@ position = Vector2(186, 359)
 [node name="Label" type="Label" parent="Text/VerticalSolution"]
 offset_left = -173.0
 offset_top = -64.0
-offset_right = -42.0
-offset_bottom = 5.0
+offset_right = -58.0
+offset_bottom = -7.0
 theme = ExtResource("3_0gwfs")
-text = "Height Aquired!"
+text = "Height
+Aquired!"
 autowrap_mode = 2
 
 [node name="Spawners" type="Node" parent="."]

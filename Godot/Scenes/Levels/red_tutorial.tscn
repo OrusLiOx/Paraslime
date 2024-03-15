@@ -74,10 +74,10 @@ theme = ExtResource("2_q64l8")
 text = "Could This Be Extra Jump?"
 autowrap_mode = 2
 
-[node name="Trigger4" parent="Text" instance=ExtResource("3_18xpe")]
+[node name="Secret" parent="Text" instance=ExtResource("3_18xpe")]
 position = Vector2(272, 240)
 
-[node name="Secret" type="Label" parent="Text/Trigger4"]
+[node name="Secret" type="Label" parent="Text/Secret"]
 offset_left = 16.0
 offset_top = 48.0
 offset_right = 70.0

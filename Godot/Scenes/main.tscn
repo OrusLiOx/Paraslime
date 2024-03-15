@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj4ffn1a43al3"]
+[gd_scene load_steps=7 format=3 uid="uid://dj4ffn1a43al3"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rukxn"]
 [ext_resource type="FontFile" uid="uid://brjv1e0gpajs0" path="res://Resources/SlimeAnDBlood.ttf" id="2_h721g"]
 [ext_resource type="Texture2D" uid="uid://dfb5vyocjh8qb" path="res://Art/clouds.png" id="2_rdqvj"]
+[ext_resource type="Theme" uid="uid://dhcu7dfjjrnr1" path="res://Resources/UI_Theme.res" id="3_bj4xl"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="3_nxefr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vswbm"]
 particles_animation = true
@@ -45,13 +47,31 @@ anim_offset_max = 1.0
 [node name="Level" type="Node" parent="."]
 
 [node name="UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_bj4xl")
+script = ExtResource("3_nxefr")
+
+[node name="LevelName" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 286.0
+offset_bottom = 71.0
+text = "Level Name"
+
+[node name="Time" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 189.0
+offset_bottom = 117.0
+text = "00:00:000"
 
 [node name="Shade" type="ColorRect" parent="."]
 visible = false

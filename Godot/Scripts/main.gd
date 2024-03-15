@@ -2,6 +2,7 @@ extends Node
 
 var current_level = 0
 var level_path = r"res://Scenes/Levels/"
+@onready var UI = $UI
 
 var levels = [
 	{
@@ -110,10 +111,26 @@ func Load_Level(toLoad : int, message = "SLIME!"):
 	await get_tree().create_timer(.5).timeout
 	var level = load(level_path + levels[toLoad]['path']).instantiate()
 	level_container.add_child(level)
+	UI.Update(levels[toLoad])
 	shade.hide()
 
 func Death():
+	levels[current_level]['deaths'] += 1
 	Load_Level(current_level)
 	
 func Win():
+	# Update Level Completed Status
+	levels[current_level]['completed'] = true
+	
+	# Update Level Time
+	var new_time = UI.time
+	if not levels[current_level]['fastest']:
+		levels[current_level]['fastest'] = new_time
+	elif new_time < levels[current_level]['fastest']:
+		levels[current_level]['fastest'] = new_time
+	
+	print(levels[current_level])
 	Next_Level()
+
+func Silly():
+	levels[current_level]['secret_found'] = true
