@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk7evahe11ps4"]
+
+[ext_resource type="Texture2D" uid="uid://b8h0h3x38hxbq" path="res://ParasiteSpawner/ParasiteSheet.png" id="1_pd15m"]
+[ext_resource type="Texture2D" uid="uid://c8b10x42nh5jm" path="res://Art/arrow.png" id="2_8quvs"]
+[ext_resource type="Texture2D" uid="uid://c81dx8iphxdv1" path="res://Player/SpriteSheet.png" id="3_wjjcp"]
+[ext_resource type="Texture2D" uid="uid://dcrxfs3nvunl2" path="res://Player/SpriteSheetShine.png" id="4_v1mvp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kmja"]
+atlas = ExtResource("1_pd15m")
+region = Rect2(28, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idfwr"]
+atlas = ExtResource("1_pd15m")
+region = Rect2(0, 14, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgrej"]
+atlas = ExtResource("1_pd15m")
+region = Rect2(28, 28, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn504"]
+atlas = ExtResource("3_wjjcp")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfv4e"]
+atlas = ExtResource("4_v1mvp")
+region = Rect2(0, 0, 14, 14)
+
+[node name="ParasiteUI" type="Node2D"]
+scale = Vector2(3, 3)
+
+[node name="Red" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-11, 7)
+texture = SubResource("AtlasTexture_7kmja")
+
+[node name="Yellow" type="Sprite2D" parent="."]
+modulate = Color(1, 0.980392, 0, 1)
+position = Vector2(12.6667, 5.66667)
+texture = SubResource("AtlasTexture_idfwr")
+
+[node name="Blue" type="Sprite2D" parent="."]
+modulate = Color(0, 0.403922, 1, 1)
+position = Vector2(0, -13)
+texture = SubResource("AtlasTexture_wgrej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.333333, 10.6667)
+rotation = 4.71239
+texture = ExtResource("2_8quvs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-7.66667, -2.33333)
+rotation = 0.785398
+texture = ExtResource("2_8quvs")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(7, -2)
+rotation = 2.26893
+texture = ExtResource("2_8quvs")
+
+[node name="Slime" type="Sprite2D" parent="."]
+modulate = Color(0.027451, 1, 0, 1)
+position = Vector2(0, 2.33333)
+texture = SubResource("AtlasTexture_wn504")
+
+[node name="Slime2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.823529)
+position = Vector2(0, 2.66667)
+texture = SubResource("AtlasTexture_wfv4e")

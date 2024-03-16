@@ -20,6 +20,7 @@ scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_vgvjo")
+respawnTime = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8iva8")
