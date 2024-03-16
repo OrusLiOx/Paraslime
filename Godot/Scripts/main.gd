@@ -77,8 +77,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly_id' : null,
-		'silly_name' : null,
+		'silly_id' : 2,
+		'silly_name' : 'Sun Hat',
 		'secret_found' : false,
 		'toggled' : false
 	}, 

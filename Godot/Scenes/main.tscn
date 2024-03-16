@@ -12,6 +12,7 @@ particles_anim_v_frames = 17
 particles_anim_loop = false
 
 [node name="Main" type="Node"]
+process_mode = 3
 script = ExtResource("1_rukxn")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -44,6 +45,7 @@ scale_amount_max = 3.0
 anim_offset_max = 1.0
 
 [node name="Level" type="Node" parent="."]
+process_mode = 1
 
 [node name="UI" parent="." instance=ExtResource("4_e4q0m")]
 z_index = 10

@@ -63,7 +63,11 @@ func Update_LS(level : Dictionary):
 
 
 func _on_back_button_pressed():
+	get_tree().paused = false
+	timer_running = true
 	level_select.hide()
 
 func _on_open_menu_pressed():
+	get_tree().paused = true
+	timer_running = false
 	level_select.show()
