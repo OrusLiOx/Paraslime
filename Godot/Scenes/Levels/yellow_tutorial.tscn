@@ -38,17 +38,6 @@ offset_bottom = -61.0
 theme = ExtResource("3_m1twq")
 text = "Press Shift!"
 
-[node name="Fear" parent="Text" instance=ExtResource("2_62hei")]
-position = Vector2(231, 225)
-
-[node name="Label" type="Label" parent="Text/Fear"]
-offset_left = -221.0
-offset_top = -109.0
-offset_right = 6.0
-offset_bottom = -82.0
-theme = ExtResource("3_m1twq")
-text = "Blue Fears Yellow"
-
 [node name="Dash2" parent="Text" instance=ExtResource("2_62hei")]
 position = Vector2(840, 422)
 
@@ -80,10 +69,6 @@ type = "Dash"
 [node name="ParasiteSpawner2" parent="Spawners" instance=ExtResource("3_aky21")]
 position = Vector2(628, 330)
 type = "Dash"
-
-[node name="ParasiteSpawner3" parent="Spawners" instance=ExtResource("3_aky21")]
-position = Vector2(87, 188)
-type = "Dive"
 
 [node name="Player" parent="." instance=ExtResource("2_7xh8e")]
 position = Vector2(319, 531)

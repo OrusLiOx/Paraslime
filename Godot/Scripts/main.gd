@@ -11,7 +11,8 @@ var levels = [
 		'completed' : null,
 		'fastest' : null,
 		'deaths' : null,
-		'silly' : null,
+		'silly_id' : null,
+		'silly_name' : null,
 		'secret_found' : null,
 		'toggled' : false
 	}, 
@@ -21,9 +22,10 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : 0,
+		'silly_id' : 5,
+		'silly_name' : 'COIN',
 		'secret_found' : false,
-		'toggled' : false
+		'toggled' : true
 	},  
 	{
 		'name' : 'Blue Tutorial',
@@ -31,7 +33,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : null,
+		'silly_id' : null,
+		'silly_name' : null,
 		'secret_found' : false,
 		'toggled' : false
 	},
@@ -41,7 +44,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : null,
+		'silly_id' : null,
+		'silly_name' : null,
 		'secret_found' : false,
 		'toggled' : false
 	},  
@@ -51,7 +55,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : null,
+		'silly_id' : null,
+		'silly_name' : null,
 		'secret_found' : false,
 		'toggled' : false
 	}, 
@@ -61,7 +66,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : null,
+		'silly_id' : null,
+		'silly_name' : null,
 		'secret_found' : false,
 		'toggled' : false
 	},  
@@ -71,7 +77,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : null,
+		'silly_id' : null,
+		'silly_name' : null,
 		'secret_found' : false,
 		'toggled' : false
 	}, 
@@ -81,7 +88,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : null,
+		'silly_id' : null,
+		'silly_name' : null,
 		'secret_found' : false,
 		'toggled' : false
 	}, 
@@ -91,7 +99,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : null,
+		'silly_id' : null,
+		'silly_name' : null,
 		'secret_found' : false,
 		'toggled' : false
 	}
@@ -153,8 +162,8 @@ func Silly():
 func Update_Sillies():
 	var sillies = []
 	for level in levels:
-		if level['silly'] != null:
+		if level['silly_id'] != null:
 			if level['secret_found'] and level['toggled']:
-				sillies.append(level['silly'])
+				sillies.append(level['silly_id'])
 				
 	emit_signal('update_sillies', sillies)

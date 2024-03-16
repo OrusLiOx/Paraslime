@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr6a8pcwtwdnu"]
+[gd_scene load_steps=8 format=3 uid="uid://dr6a8pcwtwdnu"]
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_cqrnj"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="2_63kw7"]
 [ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="2_q64l8"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="3_13t53"]
 [ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="3_18xpe"]
+[ext_resource type="Texture2D" uid="uid://75bxllg2hci6" path="res://Player/SilliesNormal.png" id="4_g7xan"]
 [ext_resource type="PackedScene" uid="uid://fyxjqusmmoc0" path="res://Scenes/Win.tscn" id="6_ers2y"]
 
 [node name="RedTutorial" type="Node2D"]
@@ -67,10 +68,18 @@ position = Vector2(272, 240)
 [node name="Secret" type="Label" parent="Text/Secret"]
 offset_left = 16.0
 offset_top = 48.0
-offset_right = 70.0
+offset_right = 104.0
 offset_bottom = 75.0
 theme = ExtResource("2_q64l8")
-text = "SHH!"
+text = "Shiny!"
+
+[node name="Sprite2D" type="Sprite2D" parent="Text/Secret"]
+position = Vector2(80, -8.00001)
+scale = Vector2(3.42857, 3.42857)
+texture = ExtResource("4_g7xan")
+hframes = 2
+vframes = 10
+frame = 16
 
 [node name="Spawners" type="Node" parent="."]
 
