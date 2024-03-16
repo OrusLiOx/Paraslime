@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://curoll7a0rrup"]
+
+[ext_resource type="Theme" uid="uid://dhcu7dfjjrnr1" path="res://Resources/UI_Theme.res" id="1_gijta"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="2_4v8ch"]
+[ext_resource type="PackedScene" uid="uid://r7ytccymlkqh" path="res://Scenes/level_panel.tscn" id="3_qq2sa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ufif"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_gijta")
+script = ExtResource("2_4v8ch")
+level_panel = ExtResource("3_qq2sa")
+
+[node name="GameUI" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 128.0
+
+[node name="LevelName" type="Label" parent="GameUI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 688.0
+offset_bottom = 71.0
+text = "Level Name"
+clip_text = true
+
+[node name="Time" type="Label" parent="GameUI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 117.0
+text = "00:00:000"
+
+[node name="OpenMenu" type="Button" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 88.0
+grow_horizontal = 0
+text = "MENU"
+
+[node name="LevelSelect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0.635294, 0.443137, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LevelSelect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.123
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0399971
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/ScrollContainer"]
+custom_minimum_size = Vector2(996, 176)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LevelSelectLabel" type="Label" parent="LevelSelect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.123
+offset_right = -192.0
+offset_bottom = 0.0399971
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ufif")
+text = "LEVEL SELECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="LevelSelect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.123
+offset_left = 832.0
+offset_bottom = 0.0399971
+text = "BACK"
+
+[node name="Settings" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="GameUI/OpenMenu" to="." method="_on_open_menu_pressed"]
+[connection signal="pressed" from="LevelSelect/BackButton" to="." method="_on_back_button_pressed"]

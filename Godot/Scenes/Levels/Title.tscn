@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://buhfwt7u1nsq8"]
+[gd_scene load_steps=4 format=3 uid="uid://buhfwt7u1nsq8"]
 
 [ext_resource type="Script" path="res://Scripts/Title.gd" id="1_3fbrk"]
+[ext_resource type="Theme" uid="uid://dhcu7dfjjrnr1" path="res://Resources/UI_Theme.res" id="1_uronm"]
+[ext_resource type="FontFile" uid="uid://brjv1e0gpajs0" path="res://Resources/SlimeAnDBlood.ttf" id="3_njg37"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_uronm")
 script = ExtResource("1_3fbrk")
 
 [node name="TempBackground" type="ColorRect" parent="."]
@@ -18,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.517647, 1, 0.419608, 1)
+color = Color(0.239216, 0.443137, 0.403922, 1)
 
 [node name="TitleName" type="Label" parent="."]
 layout_mode = 1
@@ -26,7 +29,13 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 320.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.203922, 0.854902, 0.184314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 16
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_njg37")
 theme_override_font_sizes/font_size = 150
 text = "PARASLIME"
 horizontal_alignment = 1
