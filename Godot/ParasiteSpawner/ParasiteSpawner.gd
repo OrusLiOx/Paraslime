@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var type : String
+@export var respawnTime : float
 var anim : AnimatedSprite2D
 var timer : Timer
 var enabled = true
@@ -63,7 +64,7 @@ func _process(delta):
 	pass
 
 func die():
-	timer.start(3)
+	timer.start(respawnTime)
 	enabled = false
 	if type == "None":
 		anim.play("NoneLeave")
