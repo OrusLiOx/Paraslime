@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rukxn"]
 [ext_resource type="FontFile" uid="uid://brjv1e0gpajs0" path="res://Resources/SlimeAnDBlood.ttf" id="2_h721g"]
 [ext_resource type="Texture2D" uid="uid://dfb5vyocjh8qb" path="res://Art/clouds.png" id="2_rdqvj"]
-[ext_resource type="PackedScene" uid="uid://curoll7a0rrup" path="res://ui.tscn" id="4_e4q0m"]
+[ext_resource type="PackedScene" uid="uid://curoll7a0rrup" path="res://Scenes/ui.tscn" id="4_e4q0m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vswbm"]
 particles_animation = true
