@@ -1,15 +1,60 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4cpesa57ndh5"]
+[gd_scene load_steps=19 format=3 uid="uid://c4cpesa57ndh5"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_lgkl2"]
 [ext_resource type="SpriteFrames" uid="uid://bugkh5ios1u5e" path="res://Player/WormAnimations.tres" id="2_g2sc8"]
 [ext_resource type="SpriteFrames" uid="uid://dduoi4xwk8mku" path="res://Player/PlayerAnimations.tres" id="2_o1fqh"]
 [ext_resource type="SpriteFrames" uid="uid://b7vroe45tthov" path="res://Player/PlayerShineAnimations.tres" id="3_pax8i"]
+[ext_resource type="Texture2D" uid="uid://c022ux171n53b" path="res://Player/SilliesNormal.png" id="5_h1bqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8i7xc"]
 size = Vector2(10, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xcw3x"]
 radius = 60.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duvp6"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvluy"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 14, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d71b1"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 28, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv81f"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 42, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sidap"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 56, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs7pu"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 70, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k0gw"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 84, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qj6i"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(15, 0, 14, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpmby"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 98, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2sjg"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 112, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vurb7"]
+atlas = ExtResource("5_h1bqw")
+region = Rect2(0, 126, 14, 14)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
@@ -26,10 +71,9 @@ animation = &"None"
 frame_progress = 0.513767
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(0.203922, 0.854902, 0.184314, 1)
+self_modulate = Color(0.027451, 1, 0, 1)
 sprite_frames = ExtResource("2_o1fqh")
-animation = &"NeutralJump"
-frame_progress = 0.317004
+animation = &"Idle"
 
 [node name="InnerWorm" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 0.980392, 0, 0.243137)
@@ -70,6 +114,42 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fear"]
 shape = SubResource("CircleShape2D_xcw3x")
+
+[node name="Sillies" type="Node2D" parent="."]
+
+[node name="Eyes" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_duvp6")
+
+[node name="Mustache" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_fvluy")
+
+[node name="Hat" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_d71b1")
+
+[node name="Floaty" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_pv81f")
+
+[node name="Glasses" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_sidap")
+
+[node name="Coin" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_vs7pu")
+
+[node name="Shield" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_8k0gw")
+
+[node name="Sword" type="Sprite2D" parent="Sillies"]
+position = Vector2(-4.33333, -65)
+texture = SubResource("AtlasTexture_7qj6i")
+
+[node name="Gun" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_xpmby")
+
+[node name="Knife" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_e2sjg")
+
+[node name="Fish" type="Sprite2D" parent="Sillies"]
+texture = SubResource("AtlasTexture_vurb7")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
