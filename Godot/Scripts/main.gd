@@ -95,6 +95,7 @@ var levels = [
 func _ready():
 	$Background/Clouds.emitting = true
 	Load_Level(0, "Loading...")
+	UI.Build_LS(levels.slice(1))
 
 func Next_Level(message = "SLIME!"):
 	if current_level+1 == len(levels):
@@ -111,11 +112,12 @@ func Load_Level(toLoad : int, message = "SLIME!"):
 	await get_tree().create_timer(.5).timeout
 	var level = load(level_path + levels[toLoad]['path']).instantiate()
 	level_container.add_child(level)
-	UI.Update(levels[toLoad])
+	UI.Update_Game(levels[toLoad])
 	shade.hide()
 
 func Death():
 	levels[current_level]['deaths'] += 1
+	UI.Update_LS(levels[current_level])
 	Load_Level(current_level)
 	
 func Win():
@@ -129,6 +131,7 @@ func Win():
 	elif new_time < levels[current_level]['fastest']:
 		levels[current_level]['fastest'] = new_time
 	
+	UI.Update_LS(levels[current_level])
 	print(levels[current_level])
 	Next_Level()
 
