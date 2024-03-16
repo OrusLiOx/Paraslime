@@ -52,6 +52,7 @@ func _ready():
 		connect("die", main.Death)
 		connect("win", main.Win)
 		connect("silly", main.Silly)
+		main.connect('update_sillies', self.set_sillies)
 		
 # Process movement and such
 func _physics_process(delta):

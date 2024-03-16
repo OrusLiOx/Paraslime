@@ -12,7 +12,8 @@ var levels = [
 		'fastest' : null,
 		'deaths' : null,
 		'silly' : null,
-		'secret_found' : null
+		'secret_found' : null,
+		'toggled' : false
 	}, 
 	{
 		'name' : 'Red Tutorial',
@@ -20,8 +21,9 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly' : null,
-		'secret_found' : false
+		'silly' : 0,
+		'secret_found' : false,
+		'toggled' : false
 	},  
 	{
 		'name' : 'Blue Tutorial',
@@ -30,7 +32,8 @@ var levels = [
 		'fastest' : null,
 		'deaths' : 0,
 		'silly' : null,
-		'secret_found' : false
+		'secret_found' : false,
+		'toggled' : false
 	},
 	{
 		'name' : 'Yellow Tutorial',
@@ -39,7 +42,8 @@ var levels = [
 		'fastest' : null,
 		'deaths' : 0,
 		'silly' : null,
-		'secret_found' : false
+		'secret_found' : false,
+		'toggled' : false
 	},  
 	{
 		'name' : 'Swap Tutorial',
@@ -48,7 +52,8 @@ var levels = [
 		'fastest' : null,
 		'deaths' : 0,
 		'silly' : null,
-		'secret_found' : false
+		'secret_found' : false,
+		'toggled' : false
 	}, 
 	{
 		'name' : 'Dash Block',
@@ -57,7 +62,8 @@ var levels = [
 		'fastest' : null,
 		'deaths' : 0,
 		'silly' : null,
-		'secret_found' : false
+		'secret_found' : false,
+		'toggled' : false
 	},  
 	{
 		'name' : 'Fast Switch',
@@ -66,7 +72,8 @@ var levels = [
 		'fastest' : null,
 		'deaths' : 0,
 		'silly' : null,
-		'secret_found' : false
+		'secret_found' : false,
+		'toggled' : false
 	}, 
 	{
 		'name' : 'Jump! Jump! Jump!',
@@ -75,7 +82,8 @@ var levels = [
 		'fastest' : null,
 		'deaths' : 0,
 		'silly' : null,
-		'secret_found' : false
+		'secret_found' : false,
+		'toggled' : false
 	}, 
 	{
 		'name' : 'Water Dash',
@@ -84,13 +92,16 @@ var levels = [
 		'fastest' : null,
 		'deaths' : 0,
 		'silly' : null,
-		'secret_found' : false
+		'secret_found' : false,
+		'toggled' : false
 	}
 ]
 
 @onready var level_container = $Level
 @onready var shade = $Shade
 @onready var shade_text = $Shade/Text
+
+signal update_sillies(sillies)
 
 func _ready():
 	$Background/Clouds.emitting = true
@@ -112,6 +123,7 @@ func Load_Level(toLoad : int, message = "SLIME!"):
 	await get_tree().create_timer(.5).timeout
 	var level = load(level_path + levels[toLoad]['path']).instantiate()
 	level_container.add_child(level)
+	self.Update_Sillies()
 	UI.Update_Game(levels[toLoad])
 	shade.hide()
 
@@ -137,3 +149,12 @@ func Win():
 
 func Silly():
 	levels[current_level]['secret_found'] = true
+	
+func Update_Sillies():
+	var sillies = []
+	for level in levels:
+		if level['silly'] != null:
+			if level['secret_found'] and level['toggled']:
+				sillies.append(level['silly'])
+				
+	emit_signal('update_sillies', sillies)
