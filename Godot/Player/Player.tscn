@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bugkh5ios1u5e" path="res://Player/WormAnimations.tres" id="2_g2sc8"]
 [ext_resource type="SpriteFrames" uid="uid://dduoi4xwk8mku" path="res://Player/PlayerAnimations.tres" id="2_o1fqh"]
 [ext_resource type="SpriteFrames" uid="uid://b7vroe45tthov" path="res://Player/PlayerShineAnimations.tres" id="3_pax8i"]
-[ext_resource type="Texture2D" uid="uid://75bxllg2hci6" path="res://Player/SilliesNormal.png" id="5_h1bqw"]
+[ext_resource type="Texture2D" uid="uid://c022ux171n53b" path="res://Player/SilliesNormal.png" id="5_h1bqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8i7xc"]
 size = Vector2(10, 10)
@@ -34,11 +34,11 @@ region = Rect2(0, 56, 14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vs7pu"]
 atlas = ExtResource("5_h1bqw")
-region = Rect2(0, 70, 14, 14)
+region = Rect2(0, 112, 14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8k0gw"]
 atlas = ExtResource("5_h1bqw")
-region = Rect2(0, 84, 14, 14)
+region = Rect2(0, 70, 14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qj6i"]
 atlas = ExtResource("5_h1bqw")
@@ -46,11 +46,11 @@ region = Rect2(15, 0, 14, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpmby"]
 atlas = ExtResource("5_h1bqw")
-region = Rect2(0, 98, 14, 14)
+region = Rect2(0, 84, 14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2sjg"]
 atlas = ExtResource("5_h1bqw")
-region = Rect2(0, 112, 14, 14)
+region = Rect2(0, 98, 14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vurb7"]
 atlas = ExtResource("5_h1bqw")

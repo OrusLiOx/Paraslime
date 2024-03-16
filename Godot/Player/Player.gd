@@ -56,6 +56,8 @@ func _ready():
 		
 # Process movement and such
 func _physics_process(delta):
+	if Input.is_action_just_pressed("Restart"):
+		emit_signal("die")
 	jump_process(delta)
 	walk_process(delta)
 	swim_process(delta)
