@@ -178,6 +178,18 @@ func dash_process(delta):
 
 # Animation stuff
 func animate(delta):
+	if parasite == "Dump":
+		if extraJump:
+			set_parasite_color(Color(1,0,0))
+		else:
+			set_parasite_color(Color(.3,.3,.3))
+	elif parasite == "Dash":
+		if dash<10:
+			set_parasite_color(Color(.3,.3,.3))
+		else:
+			set_parasite_color(Color("fffa00"))
+		
+	
 	if rainbowActive:
 		rainbow_handler(delta)
 	if godotActive:
@@ -255,9 +267,7 @@ func set_parasite(new):
 	wormIn.play(parasite)
 	wormOut.play(parasite)
 	
-	wormOut.modulate = color
-	color.a = 62.0/255.0
-	wormIn.modulate = color
+	set_parasite_color(color)
 
 	extraJump = parasite == "Dump"
 	if parasite == "Dash":
@@ -274,6 +284,11 @@ func eat_parasite(para):
 	if para.enabled and (para.type == "None"  or parasite_fight(parasite, para.type) == para.type):
 		set_parasite(para.type)
 		para.die()
+
+func set_parasite_color(color):
+	wormOut.modulate = color
+	color.a = 62.0/255.0
+	wormIn.modulate = color
 
 func parasite_fight(current, new):
 	match(current):

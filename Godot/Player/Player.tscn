@@ -118,37 +118,48 @@ shape = SubResource("CircleShape2D_xcw3x")
 [node name="Sillies" type="Node2D" parent="."]
 
 [node name="Eyes" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_duvp6")
 
 [node name="Mustache" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_fvluy")
 
 [node name="Hat" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_d71b1")
 
 [node name="Floaty" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_pv81f")
 
 [node name="Glasses" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_sidap")
 
 [node name="Coin" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_vs7pu")
 
 [node name="Shield" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_8k0gw")
 
 [node name="Sword" type="Sprite2D" parent="Sillies"]
+visible = false
 position = Vector2(-4.33333, -65)
 texture = SubResource("AtlasTexture_7qj6i")
 
 [node name="Gun" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_xpmby")
 
 [node name="Knife" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_e2sjg")
 
 [node name="Fish" type="Sprite2D" parent="Sillies"]
+visible = false
 texture = SubResource("AtlasTexture_vurb7")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
