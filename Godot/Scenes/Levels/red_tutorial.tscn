@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="2_q64l8"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="3_13t53"]
 [ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="3_18xpe"]
-[ext_resource type="Texture2D" uid="uid://75bxllg2hci6" path="res://Player/SilliesNormal.png" id="4_g7xan"]
+[ext_resource type="Texture2D" uid="uid://c022ux171n53b" path="res://Player/SilliesNormal.png" id="4_g7xan"]
 [ext_resource type="PackedScene" uid="uid://fyxjqusmmoc0" path="res://Scenes/Win.tscn" id="6_ers2y"]
 
 [node name="RedTutorial" type="Node2D"]
