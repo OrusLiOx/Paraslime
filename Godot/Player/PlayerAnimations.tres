@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://dduoi4xwk8mku"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://dduoi4xwk8mku"]
 
 [ext_resource type="Texture2D" uid="uid://c81dx8iphxdv1" path="res://Player/SpriteSheet.png" id="1_wxxu3"]
+[ext_resource type="Texture2D" uid="uid://b7xtv2tlwxx6v" path="res://icon.svg" id="2_a75d5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqaym"]
 atlas = ExtResource("1_wxxu3")
@@ -94,6 +95,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a75d5")
+}],
+"loop": true,
+"name": &"Godot",
 "speed": 5.0
 }, {
 "frames": [{

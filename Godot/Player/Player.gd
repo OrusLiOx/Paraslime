@@ -10,6 +10,7 @@ var spriteBase : AnimatedSprite2D
 var spriteShine : AnimatedSprite2D
 var wormOut : AnimatedSprite2D
 var wormIn: AnimatedSprite2D
+var sillies: Node
 
 var coyoteTime
 var extraJump
@@ -22,11 +23,17 @@ var dashDuration
 var inWater
 var onSurface
 
+var godotActive
+var rainbowActive
+var rainbowColorDest
+@export var sillylist :Array
+
 signal die()
 signal win()
 signal silly()
 
 func _ready():
+	sillies = $Sillies
 	spriteBase = $Sprite
 	spriteShine = $Shine
 	wormOut = $Worm
@@ -38,6 +45,7 @@ func _ready():
 	inWater = 0
 	onSurface = 0
 	set_parasite(parasite)
+	set_sillies(sillylist)
 	
 	var main = get_tree().root.get_child(0)
 	if main.name == "Main":
@@ -52,7 +60,7 @@ func _physics_process(delta):
 	swim_process(delta)
 	dash_process(delta)
 	
-	animate()
+	animate(delta)
 
 	move_and_slide()
 
@@ -169,7 +177,13 @@ func dash_process(delta):
 		dash = 50
 
 # Animation stuff
-func animate():
+func animate(delta):
+	if rainbowActive:
+		rainbow_handler(delta)
+	if godotActive:
+		spriteBase.play("Godot")
+		return
+	
 	if dash < dashDuration:
 		set_anim("Dash")
 	elif is_on_floor():
@@ -199,6 +213,29 @@ func animate():
 func set_anim(animation):
 	spriteBase.play(animation)
 	spriteShine.play(animation)
+
+func rainbow_handler(delta):
+	var scale = .5*delta
+	if spriteBase.self_modulate == rainbowColorDest:
+		match rainbowColorDest:
+			Color(0,1,0):
+				rainbowColorDest = Color(0,1,1)
+			Color(0,1,1):
+				rainbowColorDest = Color(0,0,1)
+			Color(0,0,1):
+				rainbowColorDest = Color(1,0,1)
+			Color(1,0,1):
+				rainbowColorDest = Color(1,0,0)
+			Color(1,0,0):
+				rainbowColorDest = Color(1,1,0)
+			Color(1,1,0):
+				rainbowColorDest = Color(0,1,0)	
+	
+	spriteBase.self_modulate.r = move_toward(spriteBase.self_modulate.r, rainbowColorDest.r, scale)
+	spriteBase.self_modulate.g = move_toward(spriteBase.self_modulate.g, rainbowColorDest.g, scale)
+	spriteBase.self_modulate.b = move_toward(spriteBase.self_modulate.b, rainbowColorDest.b, scale)
+
+	pass
 
 # parasite things
 func set_parasite(new):
@@ -263,6 +300,43 @@ func _on_fear_area_exited(area):
 	if area.is_in_group("ParasiteSpawner"):
 		area.unfear()
 	pass # Replace with function body.
+
+# set sillies
+func set_sillies(active:Array):
+	for i in range(0,11):
+		sillies.get_child(i).visible = active.has(i)
+	
+	# flip y
+	if active.has(-1):
+		scale.y = -3
+	else:
+		scale.y = 3
+	
+	# rainbow
+	if active.has(-2):
+		rainbowActive = true
+		spriteBase.self_modulate = Color(0,1,0)
+		rainbowColorDest = Color(0,1,0)
+	else:
+		rainbowActive = false
+	
+	# godot
+	if active.has(-3):
+		godotActive = true
+		spriteBase.scale = Vector2(.08,.08)
+		spriteShine.visible = false
+		if rainbowActive:
+			spriteBase.self_modulate = Color(0,1,1)
+			rainbowColorDest = Color(0,0,1)
+		else:
+			spriteBase.self_modulate = Color(1,1,1)
+	else:
+		godotActive = false
+		spriteBase.scale = Vector2(1,1)
+		spriteBase.self_modulate = Color("34da2f")
+		spriteShine.visible = true
+		
+	pass
 
 # helper
 func in_water():
