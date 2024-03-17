@@ -7,7 +7,7 @@ var level_path = r"res://Scenes/Levels/"
 var levels = [
 	{
 		'name' : 'Title',
-		'path' : 'title.tscn',
+		'path' : 'Title.tscn',
 		'completed' : null,
 		'fastest' : null,
 		'deaths' : null,
@@ -77,8 +77,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly_id' : null,
-		'silly_name' : null,
+		'silly_id' : 1,
+		'silly_name' : 'Mustache Mode',
 		'secret_found' : false,
 		'toggled' : false
 	},
@@ -88,8 +88,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly_id' : null,
-		'silly_name' : null,
+		'silly_id' : -1,
+		'silly_name' : 'Upslime Down',
 		'secret_found' : false,
 		'toggled' : false
 	},
@@ -99,8 +99,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly_id' : null,
-		'silly_name' : null,
+		'silly_id' : -2,
+		'silly_name' : 'Rainbow Slime',
 		'secret_found' : false,
 		'toggled' : false
 	},

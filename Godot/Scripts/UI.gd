@@ -46,9 +46,9 @@ func Update_Game(level : Dictionary):
 	game_ui.show()
 	
 func Add_Silly(silly_name, level_number):
-	silly_container.custom_minimum_size.y += 30
 	if silly_container.get_node_or_null(silly_name):
 		return 0
+	silly_container.custom_minimum_size.y += 30
 	var silly = silly_label.instantiate()
 	silly_container.add_child(silly)
 	silly.name = silly_name
