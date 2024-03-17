@@ -13,8 +13,12 @@ var timer_running = false
 @export var level_panel : PackedScene
 
 @onready var settings = $Settings
+@onready var silly_container = $Settings/ScrollContainer/VBoxContainer
+@export var silly_label : PackedScene
 
 func _ready():
+	AudioServer.set_bus_volume_db(0, linear_to_db(.5))
+	silly_container.custom_minimum_size.y = 0
 	game_ui.hide()
 	level_select.hide()
 	settings.hide()
@@ -40,6 +44,16 @@ func Update_Game(level : Dictionary):
 	timer_running = true
 	
 	game_ui.show()
+	
+func Add_Silly(silly_name, level_number):
+	silly_container.custom_minimum_size.y += 30
+	if silly_container.get_node_or_null(silly_name):
+		return 0
+	var silly = silly_label.instantiate()
+	silly_container.add_child(silly)
+	silly.name = silly_name
+	silly.text = silly_name
+	silly.num = level_number
 
 # DO NOT TOUCH, I wrote this at 2:24 am and I no longer remember what I did to make it work
 func Build_LS(levels : Array):
@@ -102,3 +116,7 @@ func _on_para_guide_toggled(toggled_on):
 		triangle.show()
 	else:
 		triangle.hide()
+
+func _on_volume_value_changed(value):
+	AudioServer.set_bus_volume_db(0, linear_to_db(value/100))
+	

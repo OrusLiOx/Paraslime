@@ -72,6 +72,39 @@ var levels = [
 		'toggled' : false
 	},  
 	{
+		'name' : 'Double Jump',
+		'path' : 'double_jump.tscn',
+		'completed' : false,
+		'fastest' : null,
+		'deaths' : 0,
+		'silly_id' : null,
+		'silly_name' : null,
+		'secret_found' : false,
+		'toggled' : false
+	},
+	{
+		'name' : 'Casual Swim',
+		'path' : 'swim.tscn',
+		'completed' : false,
+		'fastest' : null,
+		'deaths' : 0,
+		'silly_id' : null,
+		'silly_name' : null,
+		'secret_found' : false,
+		'toggled' : false
+	},
+	{
+		'name' : 'A Little Bit Of Everything',
+		'path' : 'a_little_of_everything.tscn',
+		'completed' : false,
+		'fastest' : null,
+		'deaths' : 0,
+		'silly_id' : null,
+		'silly_name' : null,
+		'secret_found' : false,
+		'toggled' : false
+	},
+	{
 		'name' : 'Fast Switch',
 		'path' : 'fast_switch.tscn',
 		'completed' : false,
@@ -88,8 +121,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly_id' : null,
-		'silly_name' : null,
+		'silly_id' : -3,
+		'silly_name' : 'Become God(ot)',
 		'secret_found' : false,
 		'toggled' : false
 	}, 
@@ -99,8 +132,8 @@ var levels = [
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly_id' : null,
-		'silly_name' : null,
+		'silly_id' : 7,
+		'silly_name' : 'Overcompensating',
 		'secret_found' : false,
 		'toggled' : false
 	}
@@ -163,17 +196,21 @@ func Win():
 		levels[current_level]['fastest'] = new_time
 	
 	UI.Update_LS(levels[current_level])
-	print(levels[current_level])
 	Next_Level()
 
 func Silly():
 	levels[current_level]['secret_found'] = true
+	UI.Add_Silly(levels[current_level]['silly_name'], current_level)
 	
 func Update_Sillies():
 	var sillies = []
 	for level in levels:
 		if level['silly_id'] != null:
-			if level['secret_found']: # and level['toggled']:
+			if level['secret_found'] and level['toggled']:
 				sillies.append(level['silly_id'])
-				
+	print(sillies)
 	emit_signal('update_sillies', sillies)
+	
+func Silly_Update(num, tog):
+	levels[int(num)]['toggled'] = tog
+	Update_Sillies()

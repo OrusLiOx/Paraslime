@@ -38,6 +38,7 @@ mouse_filter = 2
 theme = ExtResource("1_gijta")
 script = ExtResource("2_4v8ch")
 level_panel = ExtResource("3_qq2sa")
+silly_label = ExtResource("4_pn572")
 
 [node name="GameUI" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -161,31 +162,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/ScrollContainer"]
-custom_minimum_size = Vector2(160, 10)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="CheckBox" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
-layout_mode = 2
-
-[node name="CheckBox2" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
-layout_mode = 2
-
-[node name="CheckBox3" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
-layout_mode = 2
-
-[node name="CheckBox4" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
-layout_mode = 2
-
-[node name="CheckBox5" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
-layout_mode = 2
-
-[node name="CheckBox6" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
-layout_mode = 2
-
-[node name="CheckBox7" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
-layout_mode = 2
 
 [node name="SillyLabel" type="Label" parent="Settings"]
 layout_mode = 1
@@ -310,6 +290,7 @@ text = "BACK"
 [connection signal="pressed" from="Settings/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Settings/LevelSelesct" to="." method="_on_level_selesct_pressed"]
 [connection signal="pressed" from="Settings/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="value_changed" from="Settings/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="toggled" from="Settings/SpeedrunTimer" to="." method="_on_speedrun_timer_toggled"]
 [connection signal="toggled" from="Settings/ParaGuide" to="." method="_on_para_guide_toggled"]
 [connection signal="pressed" from="LevelSelect/ExitLevelSelect" to="." method="_on_exit_level_select_pressed"]

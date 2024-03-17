@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj4ffn1a43al3"]
+[gd_scene load_steps=7 format=3 uid="uid://dj4ffn1a43al3"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rukxn"]
 [ext_resource type="FontFile" uid="uid://brjv1e0gpajs0" path="res://Resources/SlimeAnDBlood.ttf" id="2_h721g"]
 [ext_resource type="Texture2D" uid="uid://dfb5vyocjh8qb" path="res://Art/clouds.png" id="2_rdqvj"]
 [ext_resource type="PackedScene" uid="uid://curoll7a0rrup" path="res://Scenes/ui.tscn" id="4_e4q0m"]
+[ext_resource type="AudioStream" uid="uid://dx8iubwmq05eu" path="res://Art/little-slimex27s-adventure-151007.mp3" id="5_3gr4h"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vswbm"]
 particles_animation = true
@@ -80,3 +81,7 @@ text = "SLIME!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3gr4h")
+autoplay = true
