@@ -208,7 +208,6 @@ func Update_Sillies():
 		if level['silly_id'] != null:
 			if level['secret_found'] and level['toggled']:
 				sillies.append(level['silly_id'])
-	print(sillies)
 	emit_signal('update_sillies', sillies)
 	
 func Silly_Update(num, tog):

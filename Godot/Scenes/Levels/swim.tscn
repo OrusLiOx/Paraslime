@@ -38,6 +38,28 @@ scale = Vector2(3.31721, 2.99903)
 texture = ExtResource("4_8x63a")
 hframes = 22
 
+[node name="Trigger" parent="Text" instance=ExtResource("2_ndff4")]
+position = Vector2(152, 168)
+
+[node name="Label" type="Label" parent="Text/Trigger"]
+offset_left = 376.0
+offset_top = 104.0
+offset_right = 576.0
+offset_bottom = 131.0
+theme = ExtResource("3_jaapv")
+text = "Red Fears Blue"
+
+[node name="Trigger2" parent="Text" instance=ExtResource("2_ndff4")]
+position = Vector2(1072, 568)
+
+[node name="Label" type="Label" parent="Text/Trigger2"]
+offset_left = -232.0
+offset_top = -64.0
+offset_right = -105.0
+offset_bottom = -37.0
+theme = ExtResource("3_jaapv")
+text = "Up We Go!"
+
 [node name="Spawners" type="Node" parent="."]
 
 [node name="ParasiteSpawner" parent="Spawners" instance=ExtResource("2_jkwr8")]
