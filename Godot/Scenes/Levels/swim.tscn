@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_e7tqt"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="2_jkwr8"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="2_ndff4"]
+[ext_resource type="PackedScene" path="res://Scenes/Trigger.tscn" id="2_ndff4"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="3_i8j1h"]
 [ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="3_jaapv"]
 [ext_resource type="Texture2D" uid="uid://c81dx8iphxdv1" path="res://Player/SpriteSheet.png" id="4_8x63a"]
@@ -67,11 +67,11 @@ position = Vector2(141, 147)
 type = "Dive"
 
 [node name="ParasiteSpawner2" parent="Spawners" instance=ExtResource("2_jkwr8")]
-position = Vector2(1093, 566)
+position = Vector2(1093, 567)
 type = "Dash"
 
 [node name="ParasiteSpawner3" parent="Spawners" instance=ExtResource("2_jkwr8")]
-position = Vector2(635, 235)
+position = Vector2(634, 237)
 type = "Dump"
 
 [node name="Player" parent="." instance=ExtResource("3_i8j1h")]

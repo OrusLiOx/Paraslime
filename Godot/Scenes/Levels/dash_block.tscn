@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1llsgpaun25f"]
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_tjglm"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="2_vy54f"]
+[ext_resource type="PackedScene" path="res://Scenes/Trigger.tscn" id="2_vy54f"]
 [ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="3_h6y1a"]
 [ext_resource type="Texture2D" uid="uid://c022ux171n53b" path="res://Player/SilliesNormal.png" id="4_2c8sq"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="4_tdjjq"]
@@ -77,7 +77,7 @@ position = Vector2(463, 137)
 type = "Dash"
 
 [node name="ParasiteSpawner" parent="Spawners" instance=ExtResource("4_tdjjq")]
-position = Vector2(512, 536)
+position = Vector2(513, 531)
 type = "Dive"
 
 [node name="ParasiteSpawner2" parent="Spawners" instance=ExtResource("4_tdjjq")]
@@ -97,4 +97,4 @@ z_index = 2
 position = Vector2(1125, 531)
 
 [node name="Win" parent="." instance=ExtResource("6_1girl")]
-position = Vector2(80, 424)
+position = Vector2(80, 420)

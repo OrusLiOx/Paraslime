@@ -61,16 +61,16 @@ var levels = [
 		'toggled' : false
 	}, 
 	{
-		'name' : 'Dash Block',
-		'path' : 'dash_block.tscn',
+		'name' : 'Casual Swim',
+		'path' : 'swim.tscn',
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly_id' : 10,
-		'silly_name' : 'Fish',
+		'silly_id' : -1,
+		'silly_name' : 'Upslime Down',
 		'secret_found' : false,
 		'toggled' : false
-	},  
+	},
 	{
 		'name' : 'Double Jump',
 		'path' : 'double_jump.tscn',
@@ -83,16 +83,16 @@ var levels = [
 		'toggled' : false
 	},
 	{
-		'name' : 'Casual Swim',
-		'path' : 'swim.tscn',
+		'name' : 'Dash Block',
+		'path' : 'dash_block.tscn',
 		'completed' : false,
 		'fastest' : null,
 		'deaths' : 0,
-		'silly_id' : -1,
-		'silly_name' : 'Upslime Down',
+		'silly_id' : 10,
+		'silly_name' : 'Fish',
 		'secret_found' : false,
 		'toggled' : false
-	},
+	},  
 	{
 		'name' : 'A Little Bit Of Everything',
 		'path' : 'a_little_of_everything.tscn',
@@ -116,17 +116,6 @@ var levels = [
 		'toggled' : false
 	}, 
 	{
-		'name' : 'Jump! Jump! Jump!',
-		'path' : 'jump_jump_jump.tscn',
-		'completed' : false,
-		'fastest' : null,
-		'deaths' : 0,
-		'silly_id' : -3,
-		'silly_name' : 'Become God(ot)',
-		'secret_found' : false,
-		'toggled' : false
-	}, 
-	{
 		'name' : 'Water Dash',
 		'path' : 'water_dash.tscn',
 		'completed' : false,
@@ -134,6 +123,17 @@ var levels = [
 		'deaths' : 0,
 		'silly_id' : 7,
 		'silly_name' : 'Overcompensating',
+		'secret_found' : false,
+		'toggled' : false
+	},
+	{
+		'name' : 'Jump! Jump! Jump!',
+		'path' : 'jump_jump_jump.tscn',
+		'completed' : false,
+		'fastest' : null,
+		'deaths' : 0,
+		'silly_id' : -3,
+		'silly_name' : 'Become God(ot)',
 		'secret_found' : false,
 		'toggled' : false
 	}

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_uf8dw"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="2_lcmq7"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="2_rv2d4"]
+[ext_resource type="PackedScene" path="res://Scenes/Trigger.tscn" id="2_rv2d4"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="3_5sxo1"]
 [ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="3_x0fvx"]
 [ext_resource type="Texture2D" uid="uid://c022ux171n53b" path="res://Player/SilliesNormal.png" id="4_2qux2"]
@@ -68,10 +68,10 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("2_lcmq7")]
-position = Vector2(1105, 110)
+position = Vector2(1105, 111)
 
 [node name="ParasiteSpawner" parent="." instance=ExtResource("3_5sxo1")]
-position = Vector2(712, 568)
+position = Vector2(712, 567)
 type = "Dash"
 
 [node name="ParasiteSpawner2" parent="." instance=ExtResource("3_5sxo1")]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjcun38fwfht6"]
+[gd_scene load_steps=8 format=3 uid="uid://cjcun38fwfht6"]
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_3rnc2"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="2_hm0tq"]
+[ext_resource type="PackedScene" path="res://Scenes/Trigger.tscn" id="2_hm0tq"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="2_k1umn"]
 [ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="3_m3gq4"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="3_t18f3"]
+[ext_resource type="Texture2D" uid="uid://d2j2sqx106co2" path="res://Art/rainbow.png" id="4_0pnqk"]
 [ext_resource type="PackedScene" uid="uid://fyxjqusmmoc0" path="res://Scenes/Win.tscn" id="4_l3q4f"]
 
 [node name="Level" type="Node2D"]
@@ -31,9 +32,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Text/Secret"]
 position = Vector2(-72, -1.04904e-05)
-scale = Vector2(2.5, 10.6667)
-hframes = 2
-vframes = 10
+scale = Vector2(3, 3)
+texture = ExtResource("4_0pnqk")
 
 [node name="Trigger" parent="Text" instance=ExtResource("2_hm0tq")]
 position = Vector2(440, 288)
@@ -60,7 +60,7 @@ text = "Mind The Spikes"
 [node name="Parasites" type="Node2D" parent="."]
 
 [node name="ParasiteSpawner" parent="Parasites" instance=ExtResource("3_t18f3")]
-position = Vector2(192, 352)
+position = Vector2(191, 357)
 type = "Dump"
 
 [node name="ParasiteSpawner2" parent="Parasites" instance=ExtResource("3_t18f3")]
@@ -68,7 +68,7 @@ position = Vector2(213, 147)
 type = "Dive"
 
 [node name="ParasiteSpawner3" parent="Parasites" instance=ExtResource("3_t18f3")]
-position = Vector2(1024, 344)
+position = Vector2(1091, 225)
 type = "Dash"
 
 [node name="ParasiteSpawner4" parent="Parasites" instance=ExtResource("3_t18f3")]
@@ -80,8 +80,7 @@ position = Vector2(653, 441)
 type = "Dive"
 
 [node name="Player" parent="." instance=ExtResource("2_k1umn")]
-visible = false
-position = Vector2(64, 440)
+position = Vector2(63, 447)
 parasite = ""
 
 [node name="Win" parent="." instance=ExtResource("4_l3q4f")]

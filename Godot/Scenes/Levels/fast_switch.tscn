@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://yovlrkmama2y" path="res://Scenes/TileMap.tscn" id="1_5hbiu"]
 [ext_resource type="PackedScene" uid="uid://d24tdij4pbxj3" path="res://ParasiteSpawner/parasite_spawner.tscn" id="2_7ff8p"]
-[ext_resource type="PackedScene" uid="uid://cudq7ridjxgvw" path="res://Scenes/Trigger.tscn" id="2_bnj7m"]
+[ext_resource type="PackedScene" path="res://Scenes/Trigger.tscn" id="2_bnj7m"]
 [ext_resource type="PackedScene" uid="uid://c4cpesa57ndh5" path="res://Player/Player.tscn" id="3_1cq4b"]
 [ext_resource type="Theme" uid="uid://10bullvl4jhe" path="res://Resources/Level_Text.res" id="3_digm5"]
 [ext_resource type="Texture2D" uid="uid://c022ux171n53b" path="res://Player/SilliesNormal.png" id="4_ltw7d"]
@@ -69,24 +69,24 @@ frame = 4
 [node name="Parasites" type="Node" parent="."]
 
 [node name="ParasiteSpawner" parent="Parasites" instance=ExtResource("2_7ff8p")]
-position = Vector2(464, 480)
+position = Vector2(464, 482)
 type = "Dump"
 respawnTime = 6.0
 
 [node name="ParasiteSpawner2" parent="Parasites" instance=ExtResource("2_7ff8p")]
-position = Vector2(256, 480)
+position = Vector2(256, 483)
 type = "Dash"
 
 [node name="ParasiteSpawner3" parent="Parasites" instance=ExtResource("2_7ff8p")]
-position = Vector2(320, 320)
+position = Vector2(320, 315)
 type = "Dive"
 
 [node name="ParasiteSpawner4" parent="Parasites" instance=ExtResource("2_7ff8p")]
-position = Vector2(624, 256)
+position = Vector2(624, 273)
 type = "Dump"
 
 [node name="ParasiteSpawner5" parent="Parasites" instance=ExtResource("2_7ff8p")]
-position = Vector2(314, 103)
+position = Vector2(314, 105)
 type = "Dive"
 
 [node name="Player" parent="." instance=ExtResource("3_1cq4b")]
