@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://buhfwt7u1nsq8"]
+[gd_scene load_steps=6 format=3 uid="uid://buhfwt7u1nsq8"]
 
 [ext_resource type="Script" path="res://Scripts/Title.gd" id="1_3fbrk"]
 [ext_resource type="Theme" uid="uid://dhcu7dfjjrnr1" path="res://Resources/UI_Theme.res" id="1_uronm"]
 [ext_resource type="FontFile" uid="uid://brjv1e0gpajs0" path="res://Resources/SlimeAnDBlood.ttf" id="3_njg37"]
+[ext_resource type="Texture2D" uid="uid://bgtechavwuklk" path="res://Art/Wildcards.png" id="4_664dm"]
+[ext_resource type="Texture2D" uid="uid://b7xtv2tlwxx6v" path="res://icon.svg" id="5_uv5bl"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -85,6 +87,28 @@ offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Exit"
+
+[node name="Wildcards" type="Sprite2D" parent="."]
+modulate = Color(0.384314, 1, 0.254902, 1)
+position = Vector2(235, 454)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_664dm")
+hframes = 3
+frame = 1
+
+[node name="Wildcards2" type="Sprite2D" parent="."]
+modulate = Color(0.384314, 1, 0.254902, 1)
+position = Vector2(919, 454)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_664dm")
+hframes = 3
+frame = 2
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.152941, 1, 0, 1)
+position = Vector2(42, 608)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_uv5bl")
 
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
