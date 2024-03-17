@@ -351,7 +351,7 @@ func set_sillies(active:Array):
 			spriteBase.self_modulate = Color(1,1,1)
 	else:
 		godotActive = false
-		#spriteBase.scale = Vector2(1,1)
+		spriteBase.scale = Vector2(1,1)
 		spriteBase.self_modulate = Color("34da2f")
 		spriteShine.visible = true
 		
