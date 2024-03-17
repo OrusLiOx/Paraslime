@@ -58,6 +58,7 @@ func _ready():
 func _physics_process(delta):
 	if Input.is_action_just_pressed("Restart"):
 		emit_signal("die")
+	
 	jump_process(delta)
 	walk_process(delta)
 	swim_process(delta)
@@ -230,7 +231,7 @@ func set_anim(animation):
 	spriteShine.play(animation)
 
 func rainbow_handler(delta):
-	var scale = .5*delta
+	var s = .5*delta
 	if spriteBase.self_modulate == rainbowColorDest:
 		match rainbowColorDest:
 			Color(0,1,0):
@@ -246,9 +247,9 @@ func rainbow_handler(delta):
 			Color(1,1,0):
 				rainbowColorDest = Color(0,1,0)	
 	
-	spriteBase.self_modulate.r = move_toward(spriteBase.self_modulate.r, rainbowColorDest.r, scale)
-	spriteBase.self_modulate.g = move_toward(spriteBase.self_modulate.g, rainbowColorDest.g, scale)
-	spriteBase.self_modulate.b = move_toward(spriteBase.self_modulate.b, rainbowColorDest.b, scale)
+	spriteBase.self_modulate.r = move_toward(spriteBase.self_modulate.r, rainbowColorDest.r, s)
+	spriteBase.self_modulate.g = move_toward(spriteBase.self_modulate.g, rainbowColorDest.g, s)
+	spriteBase.self_modulate.b = move_toward(spriteBase.self_modulate.b, rainbowColorDest.b, s)
 
 	pass
 
@@ -326,9 +327,9 @@ func set_sillies(active:Array):
 	
 	# flip y
 	if active.has(-1):
-		scale.y = -3
+		scale.y = -3*facing
 	else:
-		scale.y = 3
+		scale.y = 3*facing
 	
 	# rainbow
 	if active.has(-2):
@@ -350,7 +351,7 @@ func set_sillies(active:Array):
 			spriteBase.self_modulate = Color(1,1,1)
 	else:
 		godotActive = false
-		spriteBase.scale = Vector2(1,1)
+		#spriteBase.scale = Vector2(1,1)
 		spriteBase.self_modulate = Color("34da2f")
 		spriteShine.visible = true
 		
