@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr7g0jx7jcsyp"]
+
+[ext_resource type="Theme" uid="uid://dhcu7dfjjrnr1" path="res://Resources/UI_Theme.res" id="1_2xr5n"]
+
+[node name="CheckBox" type="CheckBox"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 384.0
+offset_bottom = 37.0
+theme = ExtResource("1_2xr5n")
+text = "Silly Name"

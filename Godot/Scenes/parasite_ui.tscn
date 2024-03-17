@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dk7evahe11ps4"]
+[gd_scene load_steps=10 format=3 uid="uid://28mlfbigyj40"]
 
 [ext_resource type="Texture2D" uid="uid://b8h0h3x38hxbq" path="res://ParasiteSpawner/ParasiteSheet.png" id="1_pd15m"]
 [ext_resource type="Texture2D" uid="uid://c8b10x42nh5jm" path="res://Art/arrow.png" id="2_8quvs"]

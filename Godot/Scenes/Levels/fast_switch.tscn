@@ -47,9 +47,9 @@ text = "You Did It!"
 position = Vector2(1136, 160)
 
 [node name="Label" type="Label" parent="Text/Secret"]
-offset_left = -80.0
+offset_left = -256.0
 offset_top = -160.0
-offset_right = 7.0
+offset_right = -169.0
 offset_bottom = -43.0
 theme = ExtResource("3_digm5")
 text = "Better 
@@ -59,7 +59,7 @@ c:"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Text/Secret"]
-position = Vector2(-96, -56)
+position = Vector2(-120, -56)
 scale = Vector2(3.42857, 3.42857)
 texture = ExtResource("4_ltw7d")
 hframes = 2

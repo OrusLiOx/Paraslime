@@ -135,8 +135,18 @@ func Load_Level(toLoad : int, message = "SLIME!"):
 	self.Update_Sillies()
 	UI.Update_Game(levels[toLoad])
 	shade.hide()
+	
+func Load_From_Path(path):
+	for i in range(0, len(levels)):
+		if levels[i]['path'] == path:
+			Load_Level(i)
+			break
+	return 0
 
 func Death():
+	if not levels[current_level]['deaths']:
+		Load_Level(current_level)
+		return 0
 	levels[current_level]['deaths'] += 1
 	UI.Update_LS(levels[current_level])
 	Load_Level(current_level)

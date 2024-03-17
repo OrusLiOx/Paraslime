@@ -1,11 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://curoll7a0rrup"]
+[gd_scene load_steps=9 format=3 uid="uid://curoll7a0rrup"]
 
 [ext_resource type="Theme" uid="uid://dhcu7dfjjrnr1" path="res://Resources/UI_Theme.res" id="1_gijta"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_4v8ch"]
 [ext_resource type="PackedScene" uid="uid://r7ytccymlkqh" path="res://Scenes/level_panel.tscn" id="3_qq2sa"]
+[ext_resource type="PackedScene" uid="uid://28mlfbigyj40" path="res://Scenes/parasite_ui.tscn" id="4_45t7k"]
+[ext_resource type="PackedScene" uid="uid://dr7g0jx7jcsyp" path="res://Scenes/SillyBox.tscn" id="4_pn572"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ufif"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7k2k"]
+bg_color = Color(0.2, 0.568627, 0.254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1msb8"]
+bg_color = Color(0.2, 0.568627, 0.254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
@@ -56,6 +74,186 @@ offset_bottom = 88.0
 grow_horizontal = 0
 text = "MENU"
 
+[node name="Triangle" type="ColorRect" parent="GameUI"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 528.0
+offset_right = 144.0
+offset_bottom = 632.0
+color = Color(0.627451, 1, 0.376471, 1)
+
+[node name="ParasiteUI" parent="GameUI/Triangle" instance=ExtResource("4_45t7k")]
+position = Vector2(64, 48)
+
+[node name="Settings" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = -256.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0.635294, 0.443137, 1)
+
+[node name="SettingsLabel" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.123
+offset_right = -128.0
+offset_bottom = -0.104
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ufif")
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.123
+offset_left = 512.0
+offset_bottom = -0.104
+text = "BACK"
+
+[node name="Restart" type="Button" parent="Settings"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 176.0
+offset_right = 600.0
+offset_bottom = 248.0
+text = "Restart
+Level"
+
+[node name="LevelSelesct" type="Button" parent="Settings"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 264.0
+offset_right = 600.0
+offset_bottom = 336.0
+text = "Level 
+Select"
+
+[node name="MainMenu" type="Button" parent="Settings"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 352.0
+offset_right = 600.0
+offset_bottom = 424.0
+text = "Main
+Menu"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.429
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -0.192017
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/ScrollContainer"]
+custom_minimum_size = Vector2(160, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CheckBox" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
+layout_mode = 2
+
+[node name="CheckBox2" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
+layout_mode = 2
+
+[node name="CheckBox3" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
+layout_mode = 2
+
+[node name="CheckBox4" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
+layout_mode = 2
+
+[node name="CheckBox5" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
+layout_mode = 2
+
+[node name="CheckBox6" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
+layout_mode = 2
+
+[node name="CheckBox7" parent="Settings/ScrollContainer/VBoxContainer" instance=ExtResource("4_pn572")]
+layout_mode = 2
+
+[node name="SillyLabel" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.286
+anchor_right = 0.6
+anchor_bottom = 0.286
+offset_left = 24.0
+offset_top = 7.87199
+offset_right = -24.0
+offset_bottom = 60.872
+text = "SILLIES"
+horizontal_alignment = 1
+
+[node name="Volume" type="HSlider" parent="Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 0.286
+offset_left = 64.0
+offset_top = 40.0
+offset_right = -320.0
+offset_bottom = -0.128006
+value = 50.0
+rounded = true
+
+[node name="VolumeLabel" type="Label" parent="Settings"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 28
+text = "Master Volume"
+
+[node name="SpeedrunTimer" parent="Settings" instance=ExtResource("4_pn572")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 0.286
+offset_left = 0.0
+offset_top = 24.0
+offset_right = -40.0
+offset_bottom = -19.128
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q7k2k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1msb8")
+button_pressed = true
+text = "Speedrun Timer"
+
+[node name="ParaGuide" parent="Settings" instance=ExtResource("4_pn572")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 0.286
+offset_left = 0.0
+offset_top = 72.0
+offset_right = -40.0
+offset_bottom = 28.872
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q7k2k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1msb8")
+button_pressed = true
+text = "Worm Guide"
+
 [node name="LevelSelect" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -98,7 +296,7 @@ text = "LEVEL SELECT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackButton" type="Button" parent="LevelSelect"]
+[node name="ExitLevelSelect" type="Button" parent="LevelSelect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -107,11 +305,11 @@ offset_left = 832.0
 offset_bottom = 0.0399971
 text = "BACK"
 
-[node name="Settings" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[connection signal="pressed" from="GameUI/OpenMenu" to="." method="_on_open_menu_pressed"]
-[connection signal="pressed" from="LevelSelect/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="GameUI/OpenMenu" to="." method="Open_Menu"]
+[connection signal="pressed" from="Settings/BackButton" to="." method="Close_All"]
+[connection signal="pressed" from="Settings/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Settings/LevelSelesct" to="." method="_on_level_selesct_pressed"]
+[connection signal="pressed" from="Settings/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="toggled" from="Settings/SpeedrunTimer" to="." method="_on_speedrun_timer_toggled"]
+[connection signal="toggled" from="Settings/ParaGuide" to="." method="_on_para_guide_toggled"]
+[connection signal="pressed" from="LevelSelect/ExitLevelSelect" to="." method="_on_exit_level_select_pressed"]
